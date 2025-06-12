@@ -1,0 +1,81 @@
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #fefefe;
+  color: #333;
+}
+
+header {
+  background: #111;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+.hero {
+  background: #f4e4ec;
+  padding: 2rem;
+  text-align: center;
+}
+
+.servicios {
+  padding: 2rem;
+  background: #fff;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 1rem;
+}
+
+.card {
+  background: #fafafa;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  flex: 1;
+  min-width: 250px;
+  max-width: 300px;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.formulario {
+  background: #f4f4f4;
+  padding: 2rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: auto;
+}
+
+label, input, select, button {
+  margin-bottom: 1rem;
+}
+
+button {
+  background-color: #e91e63;
+  color: white;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #d81b60;
+}
+
+footer {
+  background: #111;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}

@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Servicios de Fotografía, Video e Impresión</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>D'Chaleco Studio</h1>
+    <p>Fotografía • Video • Impresiones</p>
+  </header>
+
+  <section class="hero">
+    <h2>Capturamos tus momentos. Imprimimos tus ideas.</h2>
+  </section>
+
+  <section class="servicios">
+    <h2>Servicios</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Fotografía</h3>
+        <p>Sesiones profesionales, eventos, retratos y más.</p>
+      </div>
+      <div class="card">
+        <h3>Video</h3>
+        <p>Cobertura de eventos, edición profesional y filmación comercial.</p>
+      </div>
+      <div class="card">
+        <h3>Impresión</h3>
+        <p>Tarjetas, flyers y todo tipo de impresiones con calidad profesional.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="formulario">
+    <h2>Solicita tu Impresión</h2>
+    <form id="printForm">
+      <label for="nombre">Nombre completo</label>
+      <input type="text" id="nombre" name="nombre" required />
+
+      <label for="email">Correo electrónico</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="tamano">Tamaño de impresión</label>
+      <select id="tamano" name="tamano" required>
+        <option value="tarjeta">Tarjetas de negocio</option>
+        <option value="flyer">Flyers media carta</option>
+        <option value="carta">Carta</option>
+      </select>
+
+      <label for="archivo">Sube tu archivo</label>
+      <input type="file" id="archivo" name="archivo" />
+
+      <button type="submit">Enviar solicitud</button>
+    </form>
+    <p id="mensajeConfirmacion" style="display: none;">Gracias por tu pedido. Te contactaremos pronto.</p>
+  </section>
+
+  <footer>
+    <p>Contacto: contacto@dchaleco.com | WhatsApp: +1 916 000 0000</p>
+  </footer>
+
+  <script>
+    document.getElementById('printForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      document.getElementById('printForm').style.display = 'none';
+      document.getElementById('mensajeConfirmacion').style.display = 'block';
+    });
+  </script>
+</body>
+</html>
