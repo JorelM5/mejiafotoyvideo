@@ -137,7 +137,7 @@
         .hero {
             height: 100vh;
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                        url('https://drive.google.com/uc?export=view&id=1StNohQL6pqTtRJC8TY0UouWxHW1fAuyJ');
+                        url('https://i.imgur.com/27cK1Fp.jpg');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -155,7 +155,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('https://drive.google.com/uc?export=view&id=1StNohQL6pqTtRJC8TY0UouWxHW1fAuyJ');
+            background: url('https://i.imgur.com/27cK1Fp.jpg');
             background-size: cover;
             background-position: center;
             filter: blur(5px);
@@ -749,7 +749,7 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="#home" class="logo">
-                <img src="https://drive.google.com/uc?export=view&id=1dxXJjk1Kn1vDncxMTVora0NtyhE3nu8F" alt="Mejía Foto y Video Logo">
+                <img src="https://i.imgur.com/DjRBE3g.png" alt="Mejía Foto y Video Logo">
                 <span>Mejía Foto y Video</span>
             </a>
             <ul class="nav-menu">
@@ -933,37 +933,37 @@
             </div>
             <div class="gallery-grid">
                 <div class="gallery-item fade-in">
-                    <img src="https://drive.google.com/uc?export=view&id=1cw-qfgO7yo_s-GQpBORwG5cHE3OrTebJ" alt="Fotografía profesional Mejía">
+                    <img src="https://i.imgur.com/b7eLZOw.jpg" alt="Fotografía profesional Mejía">
                     <div class="gallery-overlay">
                         <span style="color: white; font-weight: bold;">Ver imagen</span>
                     </div>
                 </div>
                 <div class="gallery-item fade-in">
-                    <img src="https://drive.google.com/uc?export=view&id=1XFdXC1F-gvfx11q8Pk4BXZIIY98Hxq0j" alt="Fotografía profesional Mejía">
+                    <img src="https://i.imgur.com/RqZhCxY.jpg" alt="Fotografía profesional Mejía">
                     <div class="gallery-overlay">
                         <span style="color: white; font-weight: bold;">Ver imagen</span>
                     </div>
                 </div>
                 <div class="gallery-item fade-in">
-                    <img src="https://drive.google.com/uc?export=view&id=1FD67-g4LM6zt0mI2Q5Ln-MMJdMA1iwW6" alt="Fotografía profesional Mejía">
+                    <img src="https://i.imgur.com/Ac0QLhM.jpg" alt="Fotografía profesional Mejía">
                     <div class="gallery-overlay">
                         <span style="color: white; font-weight: bold;">Ver imagen</span>
                     </div>
                 </div>
                 <div class="gallery-item fade-in">
-                    <img src="https://drive.google.com/uc?export=view&id=1LRf-wDtgQiNIfcMzJ7jsocqfkPZS0zzQ" alt="Fotografía profesional Mejía">
+                    <img src="https://i.imgur.com/GWxC6bl.jpg" alt="Fotografía profesional Mejía">
                     <div class="gallery-overlay">
                         <span style="color: white; font-weight: bold;">Ver imagen</span>
                     </div>
                 </div>
                 <div class="gallery-item fade-in">
-                    <img src="https://drive.google.com/uc?export=view&id=1onXwTMEh9ls4QDaV0IabRmELxHcVZMlP" alt="Fotografía profesional Mejía">
+                    <img src="https://i.imgur.com/UZ9ATFF.jpg" alt="Fotografía profesional Mejía">
                     <div class="gallery-overlay">
                         <span style="color: white; font-weight: bold;">Ver imagen</span>
                     </div>
                 </div>
                 <div class="gallery-item fade-in">
-                    <img src="https://drive.google.com/uc?export=view&id=1krORNz-3FXYMWXv8wwk1q_CUvphcLNFA" alt="Fotografía profesional Mejía">
+                    <img src="https://i.imgur.com/h2adntS.jpg" alt="Fotografía profesional Mejía">
                     <div class="gallery-overlay">
                         <span style="color: white; font-weight: bold;">Ver imagen</span>
                     </div>
@@ -1217,21 +1217,38 @@ ${data.message || 'Sin mensaje adicional'}
             });
         });
 
-        // Mobile menu toggle
-        const mobileMenu = document.querySelector('.mobile-menu');
-        const navMenu = document.querySelector('.nav-menu');
-        
-        mobileMenu.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            mobileMenu.classList.toggle('active');
-        });
+        // Mobile menu toggle - FIXED VERSION
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (mobileMenu && navMenu) {
+                mobileMenu.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    navMenu.classList.toggle('active');
+                    mobileMenu.classList.toggle('active');
+                    
+                    console.log('Menu toggled:', navMenu.classList.contains('active'));
+                });
 
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                mobileMenu.classList.remove('active');
-            });
+                // Close mobile menu when clicking on a link
+                document.querySelectorAll('.nav-menu a').forEach(link => {
+                    link.addEventListener('click', function() {
+                        navMenu.classList.remove('active');
+                        mobileMenu.classList.remove('active');
+                    });
+                });
+
+                // Close menu when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!navMenu.contains(e.target) && !mobileMenu.contains(e.target)) {
+                        navMenu.classList.remove('active');
+                        mobileMenu.classList.remove('active');
+                    }
+                });
+            }
         });
 
         // Navbar scroll effect
@@ -1364,43 +1381,60 @@ ${data.message || 'Sin mensaje adicional'}
             .nav-menu {
                 position: fixed;
                 left: -100%;
-                top: 80px;
+                top: 90px;
                 flex-direction: column;
-                background-color: rgba(26, 26, 26, 0.98);
+                background-color: #1a1a1a;
                 width: 100%;
                 text-align: center;
                 transition: left 0.3s ease;
-                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.3);
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.5);
                 padding: 2rem 0;
                 z-index: 999;
                 height: auto;
                 min-height: 300px;
+                border-top: 3px solid var(--primary-color);
             }
 
             .nav-menu.active {
-                left: 0;
+                left: 0 !important;
             }
 
             .nav-menu li {
                 margin: 1.5rem 0;
                 opacity: 1;
+                list-style: none;
             }
 
             .nav-menu a {
                 color: white !important;
-                font-size: 1.2rem;
-                padding: 1rem;
+                font-size: 1.3rem;
+                padding: 1rem 2rem;
                 display: block;
+                text-decoration: none;
                 border-bottom: 1px solid rgba(255,255,255,0.1);
+                transition: all 0.3s ease;
             }
 
             .nav-menu a:hover {
                 color: var(--primary-color) !important;
-                background: rgba(255,255,255,0.1);
+                background: rgba(212, 175, 55, 0.1);
+                transform: translateX(10px);
+            }
+
+            .mobile-menu {
+                display: flex !important;
+                cursor: pointer;
+                z-index: 1001;
+            }
+
+            .mobile-menu span {
+                background: white !important;
+                transition: all 0.3s ease;
             }
 
             .mobile-menu.active span:nth-child(1) {
                 transform: rotate(-45deg) translate(-5px, 6px);
+                background: var(--primary-color) !important;
             }
 
             .mobile-menu.active span:nth-child(2) {
@@ -1409,6 +1443,7 @@ ${data.message || 'Sin mensaje adicional'}
 
             .mobile-menu.active span:nth-child(3) {
                 transform: rotate(45deg) translate(-5px, -6px);
+                background: var(--primary-color) !important;
             }
 
             .gallery-grid {
