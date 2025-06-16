@@ -97,6 +97,9 @@
         .logo img {
             height: 40px;
             width: auto;
+            background: white;
+            padding: 0.3rem;
+            border-radius: 8px;
         }
 
         .nav-menu {
@@ -133,7 +136,7 @@
         /* Hero Section */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
                         url('https://drive.google.com/uc?export=view&id=1StNohQL6pqTtRJC8TY0UouWxHW1fAuyJ');
             background-size: cover;
             background-position: center;
@@ -143,7 +146,6 @@
             text-align: center;
             color: white;
             position: relative;
-            filter: blur(0);
         }
         
         .hero::before {
@@ -156,7 +158,7 @@
             background: url('https://drive.google.com/uc?export=view&id=1StNohQL6pqTtRJC8TY0UouWxHW1fAuyJ');
             background-size: cover;
             background-position: center;
-            filter: blur(3px);
+            filter: blur(5px);
             z-index: -1;
         }
 
@@ -931,39 +933,39 @@
             </div>
             <div class="gallery-grid">
                 <div class="gallery-item fade-in">
-                    <img src="https://drive.google.com/uc?export=view&id=1XFdXC1F-gvfx11q8Pk4BXZIIY98Hxq0j" alt="Boda 1">
+                    <img src="https://drive.google.com/uc?export=view&id=1cw-qfgO7yo_s-GQpBORwG5cHE3OrTebJ" alt="Fotografía profesional Mejía">
                     <div class="gallery-overlay">
-                        <span style="color: white; font-weight: bold;">Boda Elegante</span>
+                        <span style="color: white; font-weight: bold;">Ver imagen</span>
                     </div>
                 </div>
                 <div class="gallery-item fade-in">
-                    <img src="https://drive.google.com/uc?export=view&id=1FD67-g4LM6zt0mI2Q5Ln-MMJdMA1iwW6" alt="Quinceañera">
+                    <img src="https://drive.google.com/uc?export=view&id=1XFdXC1F-gvfx11q8Pk4BXZIIY98Hxq0j" alt="Fotografía profesional Mejía">
                     <div class="gallery-overlay">
-                        <span style="color: white; font-weight: bold;">Quinceañera</span>
+                        <span style="color: white; font-weight: bold;">Ver imagen</span>
                     </div>
                 </div>
                 <div class="gallery-item fade-in">
-                    <img src="https://drive.google.com/uc?export=view&id=1onXwTMEh9ls4QDaV0IabRmELxHcVZMlP" alt="Evento">
+                    <img src="https://drive.google.com/uc?export=view&id=1FD67-g4LM6zt0mI2Q5Ln-MMJdMA1iwW6" alt="Fotografía profesional Mejía">
                     <div class="gallery-overlay">
-                        <span style="color: white; font-weight: bold;">Evento Especial</span>
+                        <span style="color: white; font-weight: bold;">Ver imagen</span>
                     </div>
                 </div>
                 <div class="gallery-item fade-in">
-                    <img src="https://drive.google.com/uc?export=view&id=1krORNz-3FXYMWXv8wwk1q_CUvphcLNFA" alt="Ceremonia">
+                    <img src="https://drive.google.com/uc?export=view&id=1LRf-wDtgQiNIfcMzJ7jsocqfkPZS0zzQ" alt="Fotografía profesional Mejía">
                     <div class="gallery-overlay">
-                        <span style="color: white; font-weight: bold;">Ceremonia</span>
+                        <span style="color: white; font-weight: bold;">Ver imagen</span>
                     </div>
                 </div>
                 <div class="gallery-item fade-in">
-                    <img src="https://drive.google.com/uc?export=view&id=1LRf-wDtgQiNIfcMzJ7jsocqfkPZS0zzQ" alt="Recepción">
+                    <img src="https://drive.google.com/uc?export=view&id=1onXwTMEh9ls4QDaV0IabRmELxHcVZMlP" alt="Fotografía profesional Mejía">
                     <div class="gallery-overlay">
-                        <span style="color: white; font-weight: bold;">Recepción</span>
+                        <span style="color: white; font-weight: bold;">Ver imagen</span>
                     </div>
                 </div>
                 <div class="gallery-item fade-in">
-                    <img src="https://drive.google.com/uc?export=view&id=1cw-qfgO7yo_s-GQpBORwG5cHE3OrTebJ" alt="Celebración">
+                    <img src="https://drive.google.com/uc?export=view&id=1krORNz-3FXYMWXv8wwk1q_CUvphcLNFA" alt="Fotografía profesional Mejía">
                     <div class="gallery-overlay">
-                        <span style="color: white; font-weight: bold;">Celebración</span>
+                        <span style="color: white; font-weight: bold;">Ver imagen</span>
                     </div>
                 </div>
             </div>
@@ -1362,15 +1364,17 @@ ${data.message || 'Sin mensaje adicional'}
             .nav-menu {
                 position: fixed;
                 left: -100%;
-                top: 70px;
+                top: 80px;
                 flex-direction: column;
                 background-color: rgba(26, 26, 26, 0.98);
                 width: 100%;
                 text-align: center;
-                transition: 0.3s;
-                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                transition: left 0.3s ease;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.3);
                 padding: 2rem 0;
                 z-index: 999;
+                height: auto;
+                min-height: 300px;
             }
 
             .nav-menu.active {
@@ -1378,7 +1382,21 @@ ${data.message || 'Sin mensaje adicional'}
             }
 
             .nav-menu li {
-                margin: 1rem 0;
+                margin: 1.5rem 0;
+                opacity: 1;
+            }
+
+            .nav-menu a {
+                color: white !important;
+                font-size: 1.2rem;
+                padding: 1rem;
+                display: block;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+
+            .nav-menu a:hover {
+                color: var(--primary-color) !important;
+                background: rgba(255,255,255,0.1);
             }
 
             .mobile-menu.active span:nth-child(1) {
