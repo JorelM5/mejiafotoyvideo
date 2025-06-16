@@ -1,74 +1,1392 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Servicios de Fotografía, Video e Impresión</title>
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mejía Foto y Video - Capturamos Momentos Inolvidables</title>
+    <meta name="description" content="25 años capturando momentos inolvidables. Fotografía y video profesional para bodas, quinceañeras y eventos especiales.">
+    
+    <!-- PWA Meta Tags -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#1a1a1a">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Mejía Foto y Video">
+    <link rel="apple-touch-icon" href="icon-192.png">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 24px;
+            }
+            
+            .special-offer {
+                font-size: 0.9rem;
+                padding: 0.8rem 0;
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .social-links {
+                gap: 0.5rem;
+            }
+            
+            .social-link {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
+        }
+
+        :root {
+            --primary-color: #d4af37;
+            --secondary-color: #1a1a1a;
+            --accent-color: #f8f8f8;
+            --text-dark: #333;
+            --text-light: #666;
+            --gradient: linear-gradient(135deg, #d4af37 0%, #f4e4a6 100%);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary-color);
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1544892504-5a42d285ab6f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            filter: blur(0);
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1544892504-5a42d285ab6f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+            filter: blur(3px);
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 2rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--gradient);
+            color: var(--secondary-color);
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Sections */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--accent-color);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        /* Packages Section */
+        .packages {
+            background: var(--accent-color);
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .package-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .package-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .package-header {
+            background: var(--gradient);
+            color: var(--secondary-color);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .package-header h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .package-content {
+            padding: 2rem;
+        }
+
+        .package-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .package-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .package-features li:before {
+            content: '✓';
+            color: var(--primary-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            aspect-ratio: 1;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--secondary-color);
+            color: white;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-form {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .contact-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .contact-info p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: #000;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #128c7e;
+            transform: scale(1.1);
+            color: white;
+        }
+
+        /* Special Offer Banner */
+        .special-offer {
+            background: var(--gradient);
+            color: var(--secondary-color);
+            text-align: center;
+            padding: 1rem 0;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .special-offer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background: var(--accent-color);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--primary-color);
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-family: serif;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .testimonial-info h4 {
+            margin: 0;
+            color: var(--secondary-color);
+        }
+
+        .testimonial-info p {
+            margin: 0;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* FAQ Section */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            margin-top: 3rem;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            background: var(--secondary-color);
+            color: white;
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: #333;
+        }
+
+        .faq-question h4 {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .faq-toggle {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-answer.active {
+            padding: 1.5rem;
+            max-height: 200px;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+
+        /* Social Media Links */
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            color: var(--secondary-color);
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+            color: var(--secondary-color);
+        }
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>D'Chaleco Studio</h1>
-    <p>Fotografía • Video • Impresiones</p>
-  </header>
-
-  <section class="hero">
-    <h2>Capturamos tus momentos. Imprimimos tus ideas.</h2>
-  </section>
-
-  <section class="servicios">
-    <h2>Servicios</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>Fotografía</h3>
-        <p>Sesiones profesionales, eventos, retratos y más.</p>
-      </div>
-      <div class="card">
-        <h3>Video</h3>
-        <p>Cobertura de eventos, edición profesional y filmación comercial.</p>
-      </div>
-      <div class="card">
-        <h3>Impresión</h3>
-        <p>Tarjetas, flyers y todo tipo de impresiones con calidad profesional.</p>
-      </div>
+    <!-- Special Offer Banner -->
+    <div class="special-offer">
+        🎉 ¡OFERTA ESPECIAL JULIO 2025! Descuento de $200 al firmar contrato en Paquete Diamante 💎 ¡Limitado!
     </div>
-  </section>
 
-  <section class="formulario">
-    <h2>Solicita tu Impresión</h2>
-    <form id="printForm">
-      <label for="nombre">Nombre completo</label>
-      <input type="text" id="nombre" name="nombre" required />
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">Mejía Foto y Video</a>
+            <ul class="nav-menu">
+                <li><a href="#home">Inicio</a></li>
+                <li><a href="#about">Nosotros</a></li>
+                <li><a href="#services">Servicios</a></li>
+                <li><a href="#testimonials">Testimonios</a></li>
+                <li><a href="#packages">Paquetes</a></li>
+                <li><a href="#gallery">Galería</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
 
-      <label for="email">Correo electrónico</label>
-      <input type="email" id="email" name="email" required />
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Capturamos Momentos Inolvidables</h1>
+            <p>25 años de experiencia creando recuerdos que duran para siempre</p>
+            <a href="#contact" class="cta-button">Reserva Tu Fecha</a>
+        </div>
+    </section>
 
-      <label for="tamano">Tamaño de impresión</label>
-      <select id="tamano" name="tamano" required>
-        <option value="tarjeta">Tarjetas de negocio</option>
-        <option value="flyer">Flyers media carta</option>
-        <option value="carta">Carta</option>
-      </select>
+    <!-- About Section -->
+    <section id="about" class="about section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Sobre Nosotros</h2>
+                <p>Más de dos décadas capturando los momentos más importantes de tu vida</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text fade-in">
+                    <p>Bienvenidos a Mejía video y fotografía. Nosotros nos hemos encargado de capturar momentos inolvidables y memorables de muchos eventos sociales y profesionales, desde hace 25 años.</p>
+                    
+                    <p>Los eventos que son tan importantes en la vida de cada persona pasan a ser parte de nosotros y de tal forma nos dedicamos a sacar el mejor provecho de las imágenes que captamos. Nos enfocamos en hacer el mejor trabajo para tu servicio.</p>
+                    
+                    <p>Las fotos y video no solo se toman o captan por captar, siempre le damos un enfoque diferente para poder realizar las mejores escenas de cada evento, las cuales al pasar los años siempre recordarás con mucha alegría.</p>
+                </div>
+                <div class="about-image fade-in">
+                    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Equipo profesional de fotografía">
+                </div>
+            </div>
+        </div>
+    </section>
 
-      <label for="archivo">Sube tu archivo</label>
-      <input type="file" id="archivo" name="archivo" />
+    <!-- Services Section -->
+    <section id="services" class="services section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Nuestros Servicios</h2>
+                <p>Especializados en capturar los momentos más importantes de tu vida</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">💒</div>
+                    <h3>Bodas</h3>
+                    <p>La boda de tus sueños merece ser capturada con la más alta calidad. Nos tomamos muy en serio tu evento y hacemos todo lo que está en nuestras manos para que salga espectacular.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">👸</div>
+                    <h3>Quinceañeras</h3>
+                    <p>Una etapa de la vida que se recuerda con mucho cariño. Permítenos ser parte de esos recuerdos inolvidables con precios especiales para 2025.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">🎉</div>
+                    <h3>Eventos Especiales</h3>
+                    <p>No solo bodas y quince años, estamos acostumbrados a capturar los mejores momentos en cada evento social. Pide informes para reservar tu fecha.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-      <button type="submit">Enviar solicitud</button>
-    </form>
-    <p id="mensajeConfirmacion" style="display: none;">Gracias por tu pedido. Te contactaremos pronto.</p>
-  </section>
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Lo Que Dicen Nuestros Clientes</h2>
+                <p>25 años creando recuerdos inolvidables para familias como la tuya</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in">
+                    <p class="testimonial-text">Mejía Foto y Video hizo que nuestra boda fuera perfecta. La calidad de las fotos y videos es excepcional, y capturaron cada momento especial. ¡Los recomendamos al 100%!</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">M</div>
+                        <div class="testimonial-info">
+                            <h4>María y Carlos González</h4>
+                            <p>Boda • Junio 2024</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <p class="testimonial-text">Para los 15 años de mi hija, buscábamos algo especial. El profesionalismo y la dedicación del equipo fue increíble. Las fotos quedaron hermosas y el video nos emociona cada vez que lo vemos.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">A</div>
+                        <div class="testimonial-info">
+                            <h4>Ana Rodríguez</h4>
+                            <p>Quinceañera • Marzo 2024</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <p class="testimonial-text">Trabajamos con ellos en nuestro evento corporativo. Muy puntuales, profesionales y con una calidad de trabajo impresionante. Sin duda los volveremos a contratar.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">J</div>
+                        <div class="testimonial-info">
+                            <h4>Jorge Martínez</h4>
+                            <p>Evento Corporativo • Enero 2025</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <footer>
-    <p>Contacto: contacto@dchaleco.com | WhatsApp: +1 916 000 0000</p>
-  </footer>
+    <!-- Packages Section -->
+    <section id="packages" class="packages section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Nuestros Paquetes</h2>
+                <p>Elige el paquete que mejor se adapte a tus necesidades</p>
+            </div>
+            <div class="packages-grid">
+                <div class="package-card fade-in">
+                    <div class="package-header">
+                        <h3>Paquete Gold</h3>
+                        <p>Perfecto para eventos pequeños</p>
+                    </div>
+                    <div class="package-content">
+                        <ul class="package-features">
+                            <li>100 fotos (4×6)</li>
+                            <li>1 Fotografía ampliación 16×20</li>
+                            <li>1 Fotografía ampliación 11×14</li>
+                            <li>2 Fotografías ampliación 8×10</li>
+                            <li>2 USB editados profesionalmente</li>
+                            <li>Caja personalizada de alta calidad</li>
+                            <li>Cobertura hasta 8 horas</li>
+                            <li>Iniciamos en la Iglesia</li>
+                        </ul>
+                        <a href="#contact" class="cta-button">Solicitar Precio</a>
+                    </div>
+                </div>
+                <div class="package-card fade-in">
+                    <div class="package-header">
+                        <h3>Paquete Diamante</h3>
+                        <p>La experiencia completa</p>
+                        <div style="background: #ff4444; color: white; padding: 0.5rem; border-radius: 20px; font-size: 0.9rem; margin-top: 1rem;">
+                            🎉 ¡OFERTA JULIO! $200 de descuento
+                        </div>
+                    </div>
+                    <div class="package-content">
+                        <ul class="package-features">
+                            <li>200 fotos (4×6)</li>
+                            <li>1 Ampliación 20×30" montada</li>
+                            <li>1 Fotografía ampliación 16×20</li>
+                            <li>2 Fotografías ampliación 11×14</li>
+                            <li>4 Fotografías ampliación 8×10</li>
+                            <li>2 USB editados profesionalmente</li>
+                            <li>Fotos en la web con app móvil</li>
+                            <li>Cobertura completa (casa, iglesia, parque, salón)</li>
+                            <li>Caja personalizada premium</li>
+                        </ul>
+                        <a href="#contact" class="cta-button">Solicitar Precio</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <script>
-    document.getElementById('printForm').addEventListener('submit', function(event) {
-      event.preventDefault();
-      document.getElementById('printForm').style.display = 'none';
-      document.getElementById('mensajeConfirmacion').style.display = 'block';
-    });
-  </script>
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Nuestra Galería</h2>
+                <p>Algunos de nuestros trabajos más destacados</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Boda 1">
+                    <div class="gallery-overlay">
+                        <span style="color: white; font-weight: bold;">Boda Elegante</span>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Quinceañera">
+                    <div class="gallery-overlay">
+                        <span style="color: white; font-weight: bold;">Quinceañera</span>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Evento">
+                    <div class="gallery-overlay">
+                        <span style="color: white; font-weight: bold;">Evento Especial</span>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1606216794079-9c2067021dd0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Ceremonia">
+                    <div class="gallery-overlay">
+                        <span style="color: white; font-weight: bold;">Ceremonia</span>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Recepción">
+                    <div class="gallery-overlay">
+                        <span style="color: white; font-weight: bold;">Recepción</span>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Celebración">
+                    <div class="gallery-overlay">
+                        <span style="color: white; font-weight: bold;">Celebración</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Preguntas Frecuentes</h2>
+                <p>Resolvemos las dudas más comunes sobre nuestros servicios</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        <h4>¿Cuánto tiempo tardan en entregar las fotos y videos?</h4>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Entregamos las fotos y videos editados profesionalmente entre 2 a 4 semanas después del evento. Para ocasiones especiales, podemos acelerar el proceso por un costo adicional.</p>
+                    </div>
+                </div>
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        <h4>¿Qué incluye la edición profesional?</h4>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Nuestra edición incluye corrección de color, retoque digital, efectos especiales, musicalización seleccionada por el cliente, títulos personalizados y división en capítulos para videos.</p>
+                    </div>
+                </div>
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        <h4>¿Cubren eventos fuera de Sacramento?</h4>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sí, cubrimos eventos en toda el área de Sacramento y ciudades cercanas. Para eventos más distantes, se aplica un cargo adicional por transportación que se discute previamente.</p>
+                    </div>
+                </div>
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        <h4>¿Puedo ver ejemplos de su trabajo antes de contratar?</h4>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>¡Por supuesto! Agenda una cita para ver nuestro portafolio completo. También puedes seguirnos en Facebook e Instagram para ver nuestros trabajos más recientes.</p>
+                    </div>
+                </div>
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        <h4>¿Qué pasa si llueve el día de mi evento?</h4>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Contamos con equipo especializado para condiciones climáticas adversas. La lluvia no será impedimento para capturar tus momentos especiales con la misma calidad profesional.</p>
+                    </div>
+                </div>
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        <h4>¿Ofrecen planes de pago?</h4>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sí, ofrecemos planes de pago flexibles. Solicita una cita para discutir las opciones que mejor se adapten a tu presupuesto y fechas de evento.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Contacto</h2>
+                <p>Estaremos listos para reservar tu fecha</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-form fade-in">
+                    <h3>Solicita tu Cotización</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Nombre Completo</label>
+                            <input type="text" id="name" name="name" placeholder="Tu nombre completo" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Teléfono</label>
+                            <input type="tel" id="phone" name="phone" placeholder="(916) 541-3044">
+                        </div>
+                        <div class="form-group">
+                            <label for="event-date">Fecha del Evento</label>
+                            <input type="date" id="event-date" name="event-date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="event-type">Tipo de Evento</label>
+                            <select id="event-type" name="event-type" style="width: 100%; padding: 1rem; border: none; border-radius: 8px; background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.2);">
+                                <option value="">Selecciona el tipo de evento</option>
+                                <option value="boda">Boda</option>
+                                <option value="quinceanera">Quinceañera</option>
+                                <option value="otro">Otro evento</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensaje</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Cuéntanos más detalles sobre tu evento..."></textarea>
+                        </div>
+                        <button type="submit" class="cta-button">Enviar Solicitud</button>
+                    </form>
+                </div>
+                <div class="contact-info fade-in">
+                    <h3>Información de Contacto</h3>
+                    <p><strong>Email:</strong><br>informes@mejiamediainc.com</p>
+                    <p><strong>WhatsApp:</strong><br>(916) 541-3044</p>
+                    <p><strong>Profesionalismo y respeto:</strong><br>Nos caracteriza nuestro compromiso con la calidad y la puntualidad en cada evento.</p>
+                    
+                    <h3 style="margin-top: 2rem;">Servicios Adicionales</h3>
+                    <p>• Invitaciones digitales</p>
+                    <p>• Creación de páginas web</p> 
+                    <p>• Ayuda con redes sociales</p>
+                    
+                    <p style="margin-top: 2rem; font-style: italic;">"Por el precio no te preocupes, recuerda que lo barato sale caro"</p>
+                    
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/mejiafotoyvideo" target="_blank" class="social-link" title="Facebook">
+                            📘
+                        </a>
+                        <a href="https://www.instagram.com/mejiafotoyvideo7" target="_blank" class="social-link" title="Instagram">
+                            📷
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/19165413044?text=Hola%2C%20me%20interesa%20información%20sobre%20sus%20servicios%20de%20fotografía%20y%20video" class="whatsapp-float" target="_blank" title="Contáctanos por WhatsApp">
+        💬
+    </a>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Mejía Foto y Video. Todos los derechos reservados. | 25 años capturando momentos inolvidables</p>
+        </div>
+    </footer>
+
+    <script>
+        // PWA Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js')
+                    .then(registration => console.log('SW registered'))
+                    .catch(error => console.log('SW registration failed'));
+            });
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Create mailto link
+            const subject = encodeURIComponent(`Solicitud de cotización - ${data['event-type'] || 'Evento'}`);
+            const body = encodeURIComponent(`
+Hola, me gustaría solicitar una cotización para mi evento:
+
+Nombre: ${data.name}
+Email: ${data.email}
+Teléfono: ${data.phone || 'No proporcionado'}
+Fecha del evento: ${data['event-date']}
+Tipo de evento: ${data['event-type'] || 'No especificado'}
+
+Mensaje adicional:
+${data.message || 'Sin mensaje adicional'}
+
+¡Espero su respuesta!
+            `);
+            
+            // Open email client
+            window.location.href = `mailto:informes@mejiamediainc.com?subject=${subject}&body=${body}`;
+            
+            // Show success message
+            alert('¡Gracias! Tu solicitud se ha preparado en tu cliente de email. Solo haz clic en enviar.');
+        });
+
+        // FAQ Toggle functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentNode;
+                const answer = faqItem.querySelector('.faq-answer');
+                
+                // Close other FAQs
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    if (item !== faqItem) {
+                        item.classList.remove('active');
+                        item.querySelector('.faq-answer').classList.remove('active');
+                    }
+                });
+                
+                // Toggle current FAQ
+                faqItem.classList.toggle('active');
+                answer.classList.toggle('active');
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        mobileMenu.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(26, 26, 26, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(26, 26, 26, 0.95)';
+            }
+        });
+
+        // Gallery lightbox effect (simple version)
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const img = item.querySelector('img');
+                const lightbox = document.createElement('div');
+                lightbox.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0,0,0,0.9);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    z-index: 10000;
+                    cursor: pointer;
+                `;
+                
+                const lightboxImg = document.createElement('img');
+                lightboxImg.src = img.src;
+                lightboxImg.style.cssText = `
+                    max-width: 90%;
+                    max-height: 90%;
+                    object-fit: contain;
+                `;
+                
+                lightbox.appendChild(lightboxImg);
+                document.body.appendChild(lightbox);
+                
+                lightbox.addEventListener('click', () => {
+                    document.body.removeChild(lightbox);
+                });
+            });
+        });
+    </script>
+
+    <!-- PWA Manifest (inline for simplicity) -->
+    <script>
+        // Create manifest.json content
+        const manifest = {
+            "name": "Mejía Foto y Video",
+            "short_name": "Mejía Foto",
+            "description": "25 años capturando momentos inolvidables",
+            "start_url": "/",
+            "display": "standalone",
+            "background_color": "#1a1a1a",
+            "theme_color": "#d4af37",
+            "orientation": "portrait",
+            "icons": [
+                {
+                    "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgdmlld0JveD0iMCAwIDE5MiAxOTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxOTIiIGhlaWdodD0iMTkyIiByeD0iMjQiIGZpbGw9IiMxYTFhMWEiLz4KPHBhdGggZD0iTTk2IDQ4QzgwIDQ4IDY0IDU2IDY0IDcyVjEyMEM2NCAxMzYgODAgMTQ0IDk2IDE0NEMxMTIgMTQ0IDEyOCAxMzYgMTI4IDEyMFY3MkMxMjggNTYgMTEyIDQ4IDk2IDQ4WiIgZmlsbD0iI2Q0YWYzNyIvPgo8Y2lyY2xlIGN4PSI5NiIgY3k9Ijg4IiByPSIxNiIgZmlsbD0iIzFhMWExYSIvPgo8L3N2Zz4K",
+                    "sizes": "192x192",
+                    "type": "image/svg+xml"
+                },
+                {
+                    "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiByeD0iNjQiIGZpbGw9IiMxYTFhMWEiLz4KPHBhdGggZD0iTTI1NiAxMjhDMjE0IDEyOCAxNzIgMTQ5IDE3MiAxOTJWMzIwQzE3MiAzNjMgMjE0IDM4NCAyNTYgMzg0QzI5OCAzODQgMzQwIDM2MyAzNDAgMzIwVjE5MkMzNDAgMTQ5IDI5OCAxMjggMjU2IDEyOFoiIGZpbGw9IiNkNGFmMzciLz4KPGNpcmNsZSBjeD0iMjU2IiBjeT0iMjMyIiByPSI0MiIgZmlsbD0iIzFhMWExYSIvPgo8L3N2Zz4K",
+                    "sizes": "512x512",
+                    "type": "image/svg+xml"
+                }
+            ]
+        };
+
+        // Create and inject manifest
+        const manifestBlob = new Blob([JSON.stringify(manifest)], {type: 'application/json'});
+        const manifestURL = URL.createObjectURL(manifestBlob);
+        document.querySelector('link[rel="manifest"]').href = manifestURL;
+
+        // Service Worker
+        const swCode = `
+            const CACHE_NAME = 'mejia-foto-v1';
+            const urlsToCache = [
+                '/',
+                'https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;500;600;700&display=swap'
+            ];
+
+            self.addEventListener('install', event => {
+                event.waitUntil(
+                    caches.open(CACHE_NAME)
+                        .then(cache => cache.addAll(urlsToCache))
+                );
+            });
+
+            self.addEventListener('fetch', event => {
+                event.respondWith(
+                    caches.match(event.request)
+                        .then(response => {
+                            if (response) {
+                                return response;
+                            }
+                            return fetch(event.request);
+                        }
+                    )
+                );
+            });
+        `;
+
+        // Register service worker with inline code
+        if ('serviceWorker' in navigator) {
+            const swBlob = new Blob([swCode], {type: 'application/javascript'});
+            const swURL = URL.createObjectURL(swBlob);
+            
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register(swURL)
+                    .then(registration => {
+                        console.log('SW registered: ', registration);
+                    })
+                    .catch(error => {
+                        console.log('SW registration failed: ', error);
+                    });
+            });
+        }
+    </script>
+
+    <!-- Additional mobile styles -->
+    <style>
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: rgba(26, 26, 26, 0.98);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                padding: 2rem 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li {
+                margin: 1rem 0;
+            }
+
+            .mobile-menu.active span:nth-child(1) {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+
+            .mobile-menu.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .mobile-menu.active span:nth-child(3) {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .packages-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section {
+                padding: 3rem 0;
+            }
+        }
+    </style>
 </body>
 </html>
