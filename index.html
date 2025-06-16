@@ -99,6 +99,10 @@
             width: auto;
         }
 
+        .logo span {
+            display: none;
+        }
+
         .nav-menu {
             display: flex;
             list-style: none;
@@ -1217,31 +1221,44 @@ ${data.message || 'Sin mensaje adicional'}
             });
         });
 
-        // Mobile menu toggle - SIMPLIFIED VERSION
+        // Mobile menu toggle - ENHANCED VERSION
         window.addEventListener('load', function() {
             console.log('Page loaded, initializing menu...');
             
             const mobileMenu = document.querySelector('.mobile-menu');
             const navMenu = document.querySelector('.nav-menu');
+            const navLinks = document.querySelectorAll('.nav-menu li');
             
             console.log('Mobile menu found:', mobileMenu);
             console.log('Nav menu found:', navMenu);
+            console.log('Nav links found:', navLinks.length);
             
             if (mobileMenu && navMenu) {
                 mobileMenu.onclick = function() {
                     console.log('Menu clicked!');
-                    navMenu.classList.toggle('active');
+                    const isActive = navMenu.classList.toggle('active');
                     mobileMenu.classList.toggle('active');
-                    console.log('Menu active:', navMenu.classList.contains('active'));
+                    
+                    // Force show links
+                    navLinks.forEach(function(link, index) {
+                        link.style.display = 'block';
+                        link.style.visibility = 'visible';
+                        link.style.opacity = '1';
+                        console.log('Link ' + index + ' made visible');
+                    });
+                    
+                    console.log('Menu active:', isActive);
                 };
 
                 // Close menu when clicking on links
-                const navLinks = document.querySelectorAll('.nav-menu a');
                 navLinks.forEach(function(link) {
-                    link.onclick = function() {
-                        navMenu.classList.remove('active');
-                        mobileMenu.classList.remove('active');
-                    };
+                    const anchor = link.querySelector('a');
+                    if (anchor) {
+                        anchor.onclick = function() {
+                            navMenu.classList.remove('active');
+                            mobileMenu.classList.remove('active');
+                        };
+                    }
                 });
             } else {
                 console.error('Menu elements not found!');
