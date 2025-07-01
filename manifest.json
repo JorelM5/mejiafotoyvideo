@@ -1,8 +1,8 @@
 {
   "name": "Mejía Foto y Video",
   "short_name": "MejíaFoto",
-  "start_url": "/?utm_source=pwa",
-  "display": "standalone",
+  "start_url": "/",
+  "description": "App XYZ... (otros campos)",
   "background_color": "#1a1a1a",
   "theme_color": "#d4af37",
   "icons": [
