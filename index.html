@@ -1,28 +1,44 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- Metadatos básicos -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mejía Foto y Video Sacramento - Capturamos Momentos Inolvidables</title>
     <meta name="description" content="25 años capturando momentos inolvidables. Fotografía y video profesional para bodas, quinceañeras y eventos especiales en Sacramento.">
+
+    <!-- Favicon y recursos -->
     <link rel="icon" type="image/png" href="https://i.imgur.com/DjRBE3g.png">
     <link rel="canonical" href="https://mejiaforotyvideo.com/" />
     
-    <!-- Schema.org markup -->
+    <!-- Schema.org markup (mejorado) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "ProfessionalService",
+      "@type": "LocalBusiness",
       "name": "Mejía Foto y Video",
       "image": "https://i.imgur.com/DjRBE3g.png",
-      "description": "25 años capturando momentos inolvidables en bodas, quinceañeras, bautizos y eventos especiales en Sacramento y áreas cercanas.",
+      "description": "25 años capturando momentos inolvidables en bodas, quinceañeras y eventos especiales en Sacramento, CA.",
       "address": {
         "@type": "PostalAddress",
+        "streetAddress": "[Tu dirección física, si aplica]",
         "addressLocality": "Sacramento",
-        "addressRegion": "CA"
+        "addressRegion": "CA",
+        "postalCode": "[Tu código postal]",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "[Tu latitud]",
+        "longitude": "[Tu longitud]"
       },
       "telephone": "+19165413044",
-      "openingHours": "Mo-Fr 09:00-18:00",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "09:00",
+        "closes": "18:00"
+      },
       "priceRange": "$$",
       "sameAs": [
         "https://www.facebook.com/mejiafotoyvideo",
@@ -30,16 +46,19 @@
       ]
     }
     </script>
-    
-    <!-- PWA (estándar moderno + iOS) -->
+
+    <!-- Configuración PWA completa -->
+    <link rel="manifest" href="/manifest.json" id="app-manifest">
     <meta name="theme-color" content="#1a1a1a">
     <meta name="mobile-web-app-capable" content="yes">
+    <!-- Compatibilidad iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Mejía Foto y Video">
-    <link rel="apple-touch-icon" href="icon-192.png">
-    
-    <link rel="stylesheet" href="/css/style.css">  <!-- Ruta correcta -->
+    <link rel="apple-touch-icon" href="https://i.imgur.com/DjRBE3g.png"> <!-- Usando el mismo favicon para consistencia -->
+
+    <!-- Hoja de estilos -->
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
     <!-- Special Offer Banner -->
