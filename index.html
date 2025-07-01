@@ -669,20 +669,18 @@ ${data.message || 'Sin mensaje adicional'}
         `;
 
         // Register service worker with inline code
-        if ('serviceWorker' in navigator) {
-            const swBlob = new Blob([swCode], {type: 'application/javascript'});
-            const swURL = URL.createObjectURL(swBlob);
-            
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register(swURL)
-                    .then(registration => {
-                        console.log('SW registered: ', registration);
-                    })
-                    .catch(error => {
-                        console.log('SW registration failed: ', error);
-                    });
+        // --- AGREGA ESTO --- //
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js') // Ruta al archivo físico
+            .then(registration => {
+                console.log('ServiceWorker registrado con éxito:', registration.scope);
+            })
+            .catch(error => {
+                console.error('Error al registrar ServiceWorker:', error);
             });
-        }
+    });
+}
     </script>
 </body>
 </html>
