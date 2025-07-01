@@ -4,7 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mejía Foto y Video - Capturamos Momentos Inolvidables</title>
-    <meta name="description" content="25 años capturando momentos inolvidables. Fotografía y video profesional para bodas, quinceañeras y eventos especiales.">
+    <meta name="description" content="25 años capturando momentos inolvidables. Fotografía y video profesional para bodas, quinceañeras y eventos especiales en Sacramento.">
+    <link rel="icon" type="image/png" href="https://i.imgur.com/DjRBE3g.png">
+    <link rel="canonical" href="https://mejiaforotyvideo.com/" />
+    
+    <!-- Schema.org markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Mejía Foto y Video",
+      "image": "https://i.imgur.com/DjRBE3g.png",
+      "description": "25 años capturando momentos inolvidables en bodas, quinceañeras y eventos especiales en Sacramento y áreas cercanas.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Sacramento",
+        "addressRegion": "CA"
+      },
+      "telephone": "+19165413044",
+      "openingHours": "Mo-Fr 09:00-18:00",
+      "priceRange": "$$",
+      "sameAs": [
+        "https://www.facebook.com/mejiafotoyvideo",
+        "https://www.instagram.com/mejiafotoyvideo7"
+      ]
+    }
+    </script>
     
     <!-- PWA Meta Tags -->
     <link rel="manifest" href="manifest.json">
@@ -19,32 +44,6 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            .whatsapp-float {
-                width: 50px;
-                height: 50px;
-                bottom: 20px;
-                right: 20px;
-                font-size: 24px;
-            }
-            
-            .special-offer {
-                font-size: 0.9rem;
-                padding: 0.8rem 0;
-            }
-            
-            .testimonials-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .social-links {
-                gap: 0.5rem;
-            }
-            
-            .social-link {
-                width: 45px;
-                height: 45px;
-                font-size: 1.3rem;
-            }
         }
 
         :root {
@@ -699,18 +698,94 @@
             overflow: hidden;
         }
 
-        .social-link img {
-            width: 30px;
-            height: 30px;
-            filter: brightness(0) invert(1);
-        }
-
         .social-link:hover {
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
             color: var(--secondary-color);
         }
+
+        /* Responsive Styles */
         @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 90px;
+                flex-direction: column;
+                background-color: #1a1a1a;
+                width: 100%;
+                text-align: center;
+                transition: left 0.3s ease;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.5);
+                padding: 2rem 0;
+                z-index: 999;
+                height: auto;
+                min-height: 300px;
+                border-top: 3px solid var(--primary-color);
+            }
+
+            .nav-menu.active {
+                left: 0 !important;
+            }
+
+            .nav-menu li {
+                margin: 1.5rem 0;
+                opacity: 1;
+                list-style: none;
+            }
+
+            .nav-menu a {
+                color: white !important;
+                font-size: 1.3rem;
+                padding: 1rem 2rem;
+                display: block;
+                text-decoration: none;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+                transition: all 0.3s ease;
+            }
+
+            .nav-menu a:hover {
+                color: var(--primary-color) !important;
+                background: rgba(212, 175, 55, 0.1);
+                transform: translateX(10px);
+            }
+
+            .mobile-menu {
+                display: flex !important;
+                cursor: pointer;
+                z-index: 1001;
+            }
+
+            .mobile-menu span {
+                background: white !important;
+                transition: all 0.3s ease;
+            }
+
+            .mobile-menu.active span:nth-child(1) {
+                transform: rotate(-45deg) translate(-5px, 6px);
+                background: var(--primary-color) !important;
+            }
+
+            .mobile-menu.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .mobile-menu.active span:nth-child(3) {
+                transform: rotate(45deg) translate(-5px, -6px);
+                background: var(--primary-color) !important;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .packages-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
             .nav-menu {
                 display: none;
             }
@@ -741,6 +816,47 @@
                 padding: 0 1rem;
             }
         }
+
+        @media (max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section {
+                padding: 3rem 0;
+            }
+
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 24px;
+            }
+            
+            .special-offer {
+                font-size: 0.9rem;
+                padding: 0.8rem 0;
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .social-links {
+                gap: 0.5rem;
+            }
+            
+            .social-link {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -753,7 +869,7 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="#home" class="logo">
-                <img src="https://i.imgur.com/DjRBE3g.png" alt="Mejía Foto y Video Logo">
+                <img src="https://i.imgur.com/DjRBE3g.png" alt="Logo de Mejía Foto y Video - Fotógrafo profesional en Sacramento">
                 <span>Mejía Foto y Video</span>
             </a>
             <ul class="nav-menu">
@@ -792,14 +908,17 @@
             </div>
             <div class="about-content">
                 <div class="about-text fade-in">
+                    <h3>Nuestra Historia</h3>
                     <p>Bienvenidos a Mejía video y fotografía. Nosotros nos hemos encargado de capturar momentos inolvidables y memorables de muchos eventos sociales y profesionales, desde hace 25 años.</p>
                     
+                    <h4>Nuestra Filosofía</h4>
                     <p>Los eventos que son tan importantes en la vida de cada persona pasan a ser parte de nosotros y de tal forma nos dedicamos a sacar el mejor provecho de las imágenes que captamos. Nos enfocamos en hacer el mejor trabajo para tu servicio.</p>
                     
+                    <h4>Nuestro Enfoque</h4>
                     <p>Las fotos y video no solo se toman o captan por captar, siempre le damos un enfoque diferente para poder realizar las mejores escenas de cada evento, las cuales al pasar los años siempre recordarás con mucha alegría.</p>
                 </div>
                 <div class="about-image fade-in">
-                    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Equipo profesional de fotografía">
+                    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Equipo profesional de fotografía de Mejía Foto y Video trabajando en un evento" loading="lazy">
                 </div>
             </div>
         </div>
@@ -816,16 +935,19 @@
                 <div class="service-card fade-in">
                     <div class="service-icon">💒</div>
                     <h3>Bodas</h3>
+                    <h4>Paquetes completos para tu boda</h4>
                     <p>La boda de tus sueños merece ser capturada con la más alta calidad. Nos tomamos muy en serio tu evento y hacemos todo lo que está en nuestras manos para que salga espectacular.</p>
                 </div>
                 <div class="service-card fade-in">
                     <div class="service-icon">👸</div>
                     <h3>Quinceañeras</h3>
+                    <h4>Captura esta etapa especial</h4>
                     <p>Una etapa de la vida que se recuerda con mucho cariño. Permítenos ser parte de esos recuerdos inolvidables con precios especiales para 2025.</p>
                 </div>
                 <div class="service-card fade-in">
                     <div class="service-icon">🎉</div>
                     <h3>Eventos Especiales</h3>
+                    <h4>Todo tipo de celebraciones</h4>
                     <p>No solo bodas y quince años, estamos acostumbrados a capturar los mejores momentos en cada evento social. Pide informes para reservar tu fecha.</p>
                 </div>
             </div>
@@ -841,6 +963,7 @@
             </div>
             <div class="testimonials-grid">
                 <div class="testimonial-card fade-in">
+                    <h3>Opinión de María y Carlos</h3>
                     <p class="testimonial-text">Mejía Foto y Video hizo que nuestra boda fuera perfecta. La calidad de las fotos y videos es excepcional, y capturaron cada momento especial. ¡Los recomendamos al 100%!</p>
                     <div class="testimonial-author">
                         <div class="testimonial-avatar">M</div>
@@ -851,6 +974,7 @@
                     </div>
                 </div>
                 <div class="testimonial-card fade-in">
+                    <h3>Opinión de Ana</h3>
                     <p class="testimonial-text">Para los 15 años de mi hija, buscábamos algo especial. El profesionalismo y la dedicación del equipo fue increíble. Las fotos quedaron hermosas y el video nos emociona cada vez que lo vemos.</p>
                     <div class="testimonial-author">
                         <div class="testimonial-avatar">A</div>
@@ -861,6 +985,7 @@
                     </div>
                 </div>
                 <div class="testimonial-card fade-in">
+                    <h3>Opinión de Jorge</h3>
                     <p class="testimonial-text">Trabajamos con ellos en nuestro evento corporativo. Muy puntuales, profesionales y con una calidad de trabajo impresionante. Sin duda los volveremos a contratar.</p>
                     <div class="testimonial-author">
                         <div class="testimonial-avatar">J</div>
@@ -937,37 +1062,37 @@
             </div>
             <div class="gallery-grid">
                 <div class="gallery-item fade-in">
-                    <img src="https://i.imgur.com/b7eLZOw.jpg" alt="Fotografía profesional Mejía">
+                    <img src="https://i.imgur.com/b7eLZOw.jpg" alt="Fotografía profesional de boda por Mejía Foto y Video" loading="lazy">
                     <div class="gallery-overlay">
                         <span style="color: white; font-weight: bold;">Ver imagen</span>
                     </div>
                 </div>
                 <div class="gallery-item fade-in">
-                    <img src="https://i.imgur.com/RqZhCxY.jpg" alt="Fotografía profesional Mejía">
+                    <img src="https://i.imgur.com/RqZhCxY.jpg" alt="Quinceañera fotografiada por Mejía Foto y Video" loading="lazy">
                     <div class="gallery-overlay">
                         <span style="color: white; font-weight: bold;">Ver imagen</span>
                     </div>
                 </div>
                 <div class="gallery-item fade-in">
-                    <img src="https://i.imgur.com/Ac0QLhM.jpg" alt="Fotografía profesional Mejía">
+                    <img src="https://i.imgur.com/Ac0QLhM.jpg" alt="Evento corporativo capturado por Mejía Foto y Video" loading="lazy">
                     <div class="gallery-overlay">
                         <span style="color: white; font-weight: bold;">Ver imagen</span>
                     </div>
                 </div>
                 <div class="gallery-item fade-in">
-                    <img src="https://i.imgur.com/GWxC6bl.jpg" alt="Fotografía profesional Mejía">
+                    <img src="https://i.imgur.com/GWxC6bl.jpg" alt="Fotografía artística de boda por Mejía Foto y Video" loading="lazy">
                     <div class="gallery-overlay">
                         <span style="color: white; font-weight: bold;">Ver imagen</span>
                     </div>
                 </div>
                 <div class="gallery-item fade-in">
-                    <img src="https://i.imgur.com/UZ9ATFF.jpg" alt="Fotografía profesional Mejía">
+                    <img src="https://i.imgur.com/UZ9ATFF.jpg" alt="Momento emocional en quinceañera capturado por Mejía" loading="lazy">
                     <div class="gallery-overlay">
                         <span style="color: white; font-weight: bold;">Ver imagen</span>
                     </div>
                 </div>
                 <div class="gallery-item fade-in">
-                    <img src="https://i.imgur.com/h2adntS.jpg" alt="Fotografía profesional Mejía">
+                    <img src="https://i.imgur.com/h2adntS.jpg" alt="Fotografía de baile en evento por Mejía Foto y Video" loading="lazy">
                     <div class="gallery-overlay">
                         <span style="color: white; font-weight: bold;">Ver imagen</span>
                     </div>
@@ -1099,12 +1224,12 @@
                     <p style="margin-top: 2rem; font-style: italic;">"Por el precio no te preocupes, recuerda que lo barato sale caro"</p>
                     
                     <div class="social-links">
-                        <a href="https://www.facebook.com/mejiafotoyvideo" target="_blank" class="social-link" title="Facebook">
+                        <a href="https://www.facebook.com/mejiafotoyvideo" target="_blank" rel="noopener noreferrer nofollow" class="social-link" title="Facebook">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                             </svg>
                         </a>
-                        <a href="https://www.instagram.com/mejiafotoyvideo7" target="_blank" class="social-link" title="Instagram">
+                        <a href="https://www.instagram.com/mejiafotoyvideo7" target="_blank" rel="noopener noreferrer nofollow" class="social-link" title="Instagram">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                             </svg>
@@ -1116,7 +1241,7 @@
     </section>
 
     <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/19165413044?text=Hola%2C%20me%20interesa%20información%20sobre%20sus%20servicios%20de%20fotografía%20y%20video" class="whatsapp-float" target="_blank" title="Contáctanos por WhatsApp">
+    <a href="https://wa.me/19165413044?text=Hola%2C%20me%20interesa%20información%20sobre%20sus%20servicios%20de%20fotografía%20y%20video" class="whatsapp-float" target="_blank" rel="noopener noreferrer" title="Contáctanos por WhatsApp">
         💬
     </a>
 
@@ -1221,33 +1346,23 @@ ${data.message || 'Sin mensaje adicional'}
             });
         });
 
-        // Mobile menu toggle - ENHANCED VERSION
+        // Mobile menu toggle
         window.addEventListener('load', function() {
-            console.log('Page loaded, initializing menu...');
-            
             const mobileMenu = document.querySelector('.mobile-menu');
             const navMenu = document.querySelector('.nav-menu');
             const navLinks = document.querySelectorAll('.nav-menu li');
             
-            console.log('Mobile menu found:', mobileMenu);
-            console.log('Nav menu found:', navMenu);
-            console.log('Nav links found:', navLinks.length);
-            
             if (mobileMenu && navMenu) {
                 mobileMenu.onclick = function() {
-                    console.log('Menu clicked!');
                     const isActive = navMenu.classList.toggle('active');
                     mobileMenu.classList.toggle('active');
                     
                     // Force show links
-                    navLinks.forEach(function(link, index) {
+                    navLinks.forEach(function(link) {
                         link.style.display = 'block';
                         link.style.visibility = 'visible';
                         link.style.opacity = '1';
-                        console.log('Link ' + index + ' made visible');
                     });
-                    
-                    console.log('Menu active:', isActive);
                 };
 
                 // Close menu when clicking on links
@@ -1260,8 +1375,6 @@ ${data.message || 'Sin mensaje adicional'}
                         };
                     }
                 });
-            } else {
-                console.error('Menu elements not found!');
             }
         });
 
@@ -1296,6 +1409,7 @@ ${data.message || 'Sin mensaje adicional'}
                 
                 const lightboxImg = document.createElement('img');
                 lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
                 lightboxImg.style.cssText = `
                     max-width: 90%;
                     max-height: 90%;
@@ -1388,104 +1502,5 @@ ${data.message || 'Sin mensaje adicional'}
             });
         }
     </script>
-
-    <!-- Additional mobile styles -->
-    <style>
-        @media (max-width: 768px) {
-            .nav-menu {
-                position: fixed;
-                left: -100%;
-                top: 90px;
-                flex-direction: column;
-                background-color: #1a1a1a;
-                width: 100%;
-                text-align: center;
-                transition: left 0.3s ease;
-                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.5);
-                padding: 2rem 0;
-                z-index: 999;
-                height: auto;
-                min-height: 300px;
-                border-top: 3px solid var(--primary-color);
-            }
-
-            .nav-menu.active {
-                left: 0 !important;
-            }
-
-            .nav-menu li {
-                margin: 1.5rem 0;
-                opacity: 1;
-                list-style: none;
-            }
-
-            .nav-menu a {
-                color: white !important;
-                font-size: 1.3rem;
-                padding: 1rem 2rem;
-                display: block;
-                text-decoration: none;
-                border-bottom: 1px solid rgba(255,255,255,0.1);
-                transition: all 0.3s ease;
-            }
-
-            .nav-menu a:hover {
-                color: var(--primary-color) !important;
-                background: rgba(212, 175, 55, 0.1);
-                transform: translateX(10px);
-            }
-
-            .mobile-menu {
-                display: flex !important;
-                cursor: pointer;
-                z-index: 1001;
-            }
-
-            .mobile-menu span {
-                background: white !important;
-                transition: all 0.3s ease;
-            }
-
-            .mobile-menu.active span:nth-child(1) {
-                transform: rotate(-45deg) translate(-5px, 6px);
-                background: var(--primary-color) !important;
-            }
-
-            .mobile-menu.active span:nth-child(2) {
-                opacity: 0;
-            }
-
-            .mobile-menu.active span:nth-child(3) {
-                transform: rotate(45deg) translate(-5px, -6px);
-                background: var(--primary-color) !important;
-            }
-
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .packages-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .gallery-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .section {
-                padding: 3rem 0;
-            }
-        }
-    </style>
 </body>
 </html>
