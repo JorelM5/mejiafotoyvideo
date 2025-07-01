@@ -2,11 +2,11 @@
   "name": "Mejía Foto y Video",
   "short_name": "MejíaFoto",
   "start_url": "/",
-  "description": "Portafolio profesional de servicios fotográficos y videográficos.",
+  "description": "25 años capturando momentos inolvidables",
   "background_color": "#1a1a1a",
   "theme_color": "#d4af37",
   "display": "standalone",
-  "orientation": "portrait-primary",
+  "orientation": "portrait",
   "icons": [
     {
       "src": "/img/icon-72.png",
