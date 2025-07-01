@@ -457,8 +457,8 @@
     <script>
         // PWA Service Worker Registration
         if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('sw.js')
+            window.addEventListener('appinstalled', (e) => {
+  console.log('PWA instalada!')
                     .then(registration => console.log('SW registered'))
                     .catch(error => console.log('SW registration failed'));
             });
