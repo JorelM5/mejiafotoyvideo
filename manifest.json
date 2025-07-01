@@ -4,5 +4,17 @@
   "start_url": "/",
   "display": "standalone",
   "background_color": "#1a1a1a",
-  "theme_color": "#d4af37"
+  "theme_color": "#d4af37",
+  "icons": [
+    {
+      "src": "https://i.imgur.com/DjRBE3g.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://i.imgur.com/DjRBE3g.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
 }
