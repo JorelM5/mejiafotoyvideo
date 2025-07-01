@@ -2,10 +2,17 @@
   "name": "Mejía Foto y Video",
   "short_name": "MejíaFoto",
   "start_url": "/",
-  "description": "App XYZ... (otros campos)",
+  "description": "Portafolio profesional de servicios fotográficos y videográficos.",
   "background_color": "#1a1a1a",
   "theme_color": "#d4af37",
+  "display": "standalone",
+  "orientation": "portrait-primary",
   "icons": [
+    {
+      "src": "/img/icon-72.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
     {
       "src": "/img/icon-192.png",
       "sizes": "192x192",
