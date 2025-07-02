@@ -2620,5 +2620,18 @@ ${data.name}
       ]
     }
     </script>
+// Forzar scroll al inicio al cargar
+window.addEventListener('load', function() {
+    window.scrollTo(0, 0);
+    if (window.location.hash) {
+        history.replaceState(null, null, window.location.pathname);
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(() => {
+        window.scrollTo(0, 0);
+    }, 100);
+});
 </body>
 </html>
