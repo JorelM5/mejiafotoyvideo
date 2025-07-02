@@ -2168,3 +2168,20 @@ button:disabled,
   background-color: var(--primary-color);
   color: var(--white);
 }
+/* Forzar que el Hero aparezca primero */
+.hero {
+    position: relative;
+    z-index: 1;
+    margin-top: -80px; /* Compensar navbar fijo */
+    padding-top: 80px; /* Asegurar contenido visible */
+    min-height: 100vh;
+}
+
+body {
+    padding-top: 80px; /* Compensar navbar fijo */
+}
+
+/* Prevenir saltos automáticos */
+html {
+    scroll-behavior: smooth;
+}
