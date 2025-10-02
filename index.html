@@ -106,7 +106,7 @@
             top: -40px;
             left: 6px;
             background: var(--primary-color);
-            color: var(--white);
+            color: #ffffff;
             padding: 8px;
             text-decoration: none;
             z-index: 1000;
@@ -119,7 +119,7 @@
         /* Special Offer Banner */
         .special-offer {
             background: var(--gradient);
-            color: var(--white);
+            color: #ffffff;
             text-align: center;
             padding: 12px 20px;
             font-weight: 500;
@@ -267,7 +267,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            color: var(--white);
+            color: #ffffff;
             overflow: hidden;
         }
 
@@ -313,12 +313,13 @@
             font-weight: 700;
             margin-bottom: 1.5rem;
             line-height: 1.2;
+            color: #ffffff;
         }
 
         .hero-description {
             font-size: 1.25rem;
             margin-bottom: 2.5rem;
-            opacity: 0.9;
+            color: rgba(255, 255, 255, 0.95);
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
@@ -347,7 +348,7 @@
 
         .cta-primary {
             background: var(--gradient);
-            color: var(--white);
+            color: #ffffff;
             border: 2px solid var(--primary-color);
         }
 
@@ -358,12 +359,12 @@
 
         .cta-secondary {
             background: transparent;
-            color: var(--white);
-            border: 2px solid var(--white);
+            color: #ffffff;
+            border: 2px solid #ffffff;
         }
 
         .cta-secondary:hover {
-            background: var(--white);
+            background: #ffffff;
             color: var(--text-dark);
         }
 
@@ -387,7 +388,7 @@
 
         .stat-label {
             font-size: 0.9rem;
-            opacity: 0.8;
+            color: rgba(255, 255, 255, 0.9);
         }
 
         .hero-scroll {
@@ -411,7 +412,7 @@
         }
 
         .hero-scroll a {
-            color: var(--white);
+            color: #ffffff;
             text-decoration: none;
             display: flex;
             flex-direction: column;
@@ -436,7 +437,7 @@
         .section-badge {
             display: inline-block;
             background: var(--gradient);
-            color: var(--white);
+            color: #ffffff;
             padding: 8px 16px;
             border-radius: 20px;
             font-size: 0.9rem;
@@ -515,7 +516,7 @@
             left: 0;
             right: 0;
             background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-            color: var(--white);
+            color: #ffffff;
             padding: 2rem;
             transform: translateY(100%);
             transition: transform 0.3s ease;
@@ -607,7 +608,7 @@
         .service-cta {
             display: inline-block;
             background: var(--primary-color);
-            color: var(--white);
+            color: #ffffff;
             padding: 12px 24px;
             border-radius: 6px;
             text-decoration: none;
@@ -708,7 +709,7 @@
 
         .package-header {
             background: var(--gradient);
-            color: var(--white);
+            color: #ffffff;
             padding: 2rem;
             text-align: center;
             position: relative;
@@ -720,7 +721,7 @@
             left: 50%;
             transform: translateX(-50%);
             background: var(--secondary-color);
-            color: var(--white);
+            color: #ffffff;
             padding: 8px 20px;
             border-radius: 25px;
             font-size: 0.85rem;
@@ -821,7 +822,7 @@
             right: 0;
             bottom: 0;
             background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.8));
-            color: var(--white);
+            color: #ffffff;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -849,7 +850,7 @@
             border-radius: 50%;
             width: 50px;
             height: 50px;
-            color: var(--white);
+            color: #ffffff;
             cursor: pointer;
             transition: all 0.3s ease;
             align-self: flex-end;
@@ -1018,7 +1019,7 @@
         .submit-btn {
             width: 100%;
             background: var(--gradient);
-            color: var(--white);
+            color: #ffffff;
             border: none;
             padding: 15px;
             border-radius: 8px;
@@ -1026,861 +1027,8 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .submit-btn.loading {
-            cursor: not-allowed;
-        }
-
-        .submit-btn.loading .btn-text {
-            opacity: 0;
-        }
-
-        .submit-btn.loading .btn-loader {
-            opacity: 1;
-        }
-
-        .btn-loader {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        /* Contact Info */
-        .contact-card {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            margin-bottom: 2rem;
-        }
-
-        .contact-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--text-dark);
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-icon {
-            background: var(--primary-color);
-            color: var(--white);
-            padding: 12px;
-            border-radius: 50%;
-            min-width: 48px;
-            height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .contact-details h4 {
-            margin-bottom: 0.25rem;
-            color: var(--text-dark);
-        }
-
-        .contact-details a {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .contact-details a:hover {
-            text-decoration: underline;
-        }
-
-        .services-list {
-            list-style: none;
-        }
-
-        .services-list li {
-            padding: 0.5rem 0;
-            color: var(--text-light);
-        }
-
-        .contact-quote {
-            background: var(--background-light);
-            padding: 1.5rem;
-            border-radius: 8px;
-            border-left: 4px solid var(--primary-color);
-            margin: 2rem 0;
-        }
-
-        .contact-quote blockquote {
-            font-style: italic;
-            color: var(--text-light);
-            margin: 0;
-        }
-
-        .social-links h4 {
-            margin-bottom: 1rem;
-            color: var(--text-dark);
-        }
-
-        .social-grid {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .social-link {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 12px 16px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .social-link.facebook {
-            background: #1877f2;
-            color: var(--white);
-        }
-
-        .social-link.instagram {
-            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-            color: var(--white);
-        }
-
-        .social-link:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow);
-        }
-
-        /* WhatsApp Float */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #25d366;
-            color: var(--white);
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: var(--shadow-lg);
-            z-index: 1000;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
-        }
-
-        /* Back to Top */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            left: 30px;
-            background: var(--primary-color);
-            color: var(--white);
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 1000;
-        }
-
-        .back-to-top.show {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .back-to-top:hover {
-            background: var(--accent-color);
-            transform: translateY(-2px);
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--secondary-color);
-            color: var(--white);
-            padding: 3rem 0 1rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h4 {
-            margin-bottom: 1rem;
-            color: var(--primary-color);
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-section ul li a {
-            color: #ccc;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-section ul li a:hover {
-            color: var(--primary-color);
-        }
-
-        .footer-logo {
-            width: 80px;
-            height: auto;
-            margin-bottom: 1rem;
-            border-radius: 8px;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #333;
-            padding-top: 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .footer-links a {
-            color: #ccc;
-            text-decoration: none;
-            font-size: 0.9rem;
-        }
-
-        .footer-links a:hover {
-            color: var(--primary-color);
-        }
-
-        /* Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Lightbox */
-        .lightbox {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            z-index: 2000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .lightbox.show {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .lightbox-content {
-            position: relative;
-            max-width: 90%;
-            max-height: 90%;
-        }
-
-        .lightbox-close {
-            position: absolute;
-            top: -50px;
-            right: 0;
-            background: var(--primary-color);
-            color: var(--white);
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-        }
-
-        .lightbox-image img {
-            max-width: 100%;
-            max-height: 80vh;
-            border-radius: 8px;
-        }
-
-        .lightbox-info {
-            text-align: center;
-            color: var(--white);
-            margin-top: 1rem;
-        }
-
-        /* Notifications */
-        .notification {
-            position: fixed;
-            top: 100px;
-            right: 30px;
-            background: var(--white);
-            border-radius: 8px;
-            box-shadow: var(--shadow-lg);
-            padding: 1rem;
-            z-index: 1500;
-            transform: translateX(400px);
-            transition: transform 0.3s ease;
-            max-width: 350px;
-        }
-
-        .notification.show {
-            transform: translateX(0);
-        }
-
-        .notification.success {
-            border-left: 4px solid #10b981;
-        }
-
-        .notification.error {
-            border-left: 4px solid #ef4444;
-        }
-
-        .notification-content {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .notification-icon {
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        .notification.success .notification-icon {
-            color: #10b981;
-        }
-
-        .notification.error .notification-icon {
-            color: #ef4444;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .mobile-menu {
-                display: flex;
-            }
-
-            .nav-menu {
-                position: fixed;
-                top: 80px;
-                left: 0;
-                width: 100%;
-                background: var(--white);
-                flex-direction: column;
-                padding: 2rem;
-                box-shadow: var(--shadow);
-                transform: translateX(-100%);
-                transition: transform 0.3s ease;
-            }
-
-            .nav-menu.active {
-                transform: translateX(0);
-            }
-
-            .hero-actions {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .hero-stats {
-                gap: 2rem;
-            }
-
-            .about-content,
-            .contact-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-
-            .packages-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .package-card.featured {
-                transform: none;
-            }
-
-            .social-grid {
-                flex-direction: column;
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .section {
-                padding: 60px 0;
-            }
-
-            .special-offer {
-                padding: 8px 15px;
-                font-size: 0.9rem;
-            }
-
-            .offer-content {
-                gap: 4px;
-            }
-
-            .whatsapp-float {
-                bottom: 20px;
-                right: 20px;
-                width: 50px;
-                height: 50px;
-            }
-
-            .back-to-top {
-                bottom: 20px;
-                left: 20px;
-                width: 40px;
-                height: 40px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 15px;
-            }
-
-            .hero-title {
-                font-size: 2rem;
-            }
-
-            .hero-description {
-                font-size: 1.1rem;
-            }
-
-            .stat-number {
-                font-size: 2rem;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .testimonials-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .gallery-grid {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            }
-
-            .contact-form-element {
-                padding: 1.5rem;
-            }
-
-            .special-offer {
-                font-size: 0.8rem;
-            }
-        }
-
-        /* Print Styles */
-        @media print {
-            .navbar,
-            .whatsapp-float,
-            .back-to-top,
-            .special-offer {
-                display: none;
-            }
-
-            .hero {
-                height: auto;
-                padding: 2rem 0;
-            }
-
-            .section {
-                padding: 1rem 0;
-            }
-        }
-
-        /* Dark mode support */
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --background-light: #1f1f1f;
-                --white: #2d2d2d;
-                --text-dark: #e5e5e5;
-                --text-light: #a0a0a0;
-            }
-        }
-
-        /* High contrast mode */
-        @media (prefers-contrast: high) {
-            :root {
-                --primary-color: #ffff00;
-                --secondary-color: #000000;
-                --text-dark: #000000;
-                --white: #ffffff;
-            }
-        }
-
-        /* Reduced motion */
-        @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- Skip to main content -->
-    <a href="#main" class="skip-link">Saltar al contenido principal</a>
-    
-    <!-- Special Offer Banner -->
-    <div class="special-offer" role="banner">
-        <div class="offer-content">
-            <span class="offer-icon">🎉</span>
-            <span class="offer-text">¡OFERTA ESPECIAL JULIO 2025! Descuento de $250 al firmar contrato en Paquete Diamante</span>
-            <span class="offer-badge">💎 ¡Limitado!</span>
-        </div>
-    </div>
-
-    <!-- Navigation -->
-    <nav class="navbar" role="navigation">
-        <div class="nav-container">
-            <a href="#home" class="logo">
-                <img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=50&h=50&fit=crop&crop=center" alt="Logo de Mejía Foto y Video" width="50" height="50">
-                <span>Mejía Foto y Video</span>
-            </a>
-            <ul class="nav-menu" role="menubar">
-                <li><a href="#home">Inicio</a></li>
-                <li><a href="#about">Nosotros</a></li>
-                <li><a href="#services">Servicios</a></li>
-                <li><a href="#testimonials">Testimonios</a></li>
-                <li><a href="#packages">Paquetes</a></li>
-                <li><a href="#gallery">Galería</a></li>
-                <li><a href="#faq">FAQ</a></li>
-                <li><a href="#contact">Contacto</a></li>
-            </ul>
-            <button class="mobile-menu" aria-label="Abrir menú" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </nav>
-
-    <!-- Main Content -->
-    <main id="main">
-        <!-- Hero Section -->
-        <section id="home" class="hero">
-            <div class="hero-background"></div>
-            <div class="hero-content">
-                <h1 class="hero-title">
-                    <span class="hero-subtitle">25 años de experiencia</span>
-                    Capturamos Momentos Inolvidables
-                </h1>
-                <p class="hero-description">Fotografía y video profesional para bodas, quinceañeras y eventos especiales en Sacramento, California</p>
-                <div class="hero-actions">
-                    <a href="#contact" class="cta-primary">Reserva Tu Fecha</a>
-                    <a href="#packages" class="cta-secondary">Ver Paquetes</a>
+            position:
                 </div>
-                <div class="hero-stats">
-                    <div class="stat">
-                        <span class="stat-number">25+</span>
-                        <span class="stat-label">Años de experiencia</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">500+</span>
-                        <span class="stat-label">Eventos capturados</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">100%</span>
-                        <span class="stat-label">Satisfacción garantizada</span>
-                    </div>
-                </div>
-            </div>
-            <div class="hero-scroll">
-                <a href="#about">
-                    <span>Conoce más</span>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M7 13l3 3 7-7"></path>
-                        <path d="M7 6l3 3 7-7"></path>
-                    </svg>
-                </a>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="about" class="about section">
-            <div class="container">
-                <div class="section-header fade-in">
-                    <span class="section-badge">Nuestra Historia</span>
-                    <h2>Sobre Nosotros</h2>
-                    <p class="section-description">Más de dos décadas capturando los momentos más importantes de tu vida, creando recuerdos que duran para siempre.</p>
-                </div>
-                <div class="about-content">
-                    <div class="about-text fade-in">
-                        <div class="about-card">
-                            <div class="about-icon">📸</div>
-                            <h3>Nuestra Historia</h3>
-                            <p>Bienvenidos a Mejía video y fotografía. Nosotros nos hemos encargado de capturar momentos inolvidables y memorables de muchos eventos sociales y profesionales, desde hace 25 años.</p>
-                        </div>
-                        
-                        <div class="about-card">
-                            <div class="about-icon">🎯</div>
-                            <h3>Nuestra Filosofía</h3>
-                            <p>Los eventos que son tan importantes en la vida de cada persona pasan a ser parte de nosotros y de tal forma nos dedicamos a sacar el mejor provecho de las imágenes que captamos.</p>
-                        </div>
-                        
-                        <div class="about-card">
-                            <div class="about-icon">🎨</div>
-                            <h3>Nuestro Enfoque</h3>
-                            <p>Las fotos y video no solo se toman por captar, siempre le damos un enfoque diferente para realizar las mejores escenas de cada evento, las cuales recordarás con alegría.</p>
-                        </div>
-                    </div>
-                    <div class="about-image fade-in">
-                        <div class="image-container">
-                            <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Equipo profesional de fotografía" loading="lazy">
-                            <div class="image-overlay">
-                                <div class="overlay-content">
-                                    <span class="overlay-badge">25 años</span>
-                                    <p>Capturando momentos inolvidables</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Services Section -->
-        <section id="services" class="services section">
-            <div class="container">
-                <div class="section-header fade-in">
-                    <span class="section-badge">Nuestros Servicios</span>
-                    <h2>Especializados en Momentos Únicos</h2>
-                    <p class="section-description">Cada servicio está diseñado para capturar la esencia y emoción de tus momentos más importantes</p>
-                </div>
-                <div class="services-grid">
-                    <article class="service-card fade-in">
-                        <div class="service-image">
-                            <div class="service-icon">💒</div>
-                        </div>
-                        <div class="service-content">
-                            <h3>Bodas</h3>
-                            <h4>Paquetes completos para tu boda</h4>
-                            <p>La boda de tus sueños merece ser capturada con la más alta calidad. Nos tomamos muy en serio tu evento y hacemos todo lo que está en nuestras manos para que salga espectacular.</p>
-                            <ul class="service-features">
-                                <li>Cobertura completa del evento</li>
-                                <li>Edición profesional</li>
-                                <li>Entrega en múltiples formatos</li>
-                            </ul>
-                            <a href="#contact" class="service-cta">Solicitar información</a>
-                        </div>
-                    </article>
-                    
-                    <article class="service-card fade-in">
-                        <div class="service-image">
-                            <div class="service-icon">👸</div>
-                        </div>
-                        <div class="service-content">
-                            <h3>Quinceañeras</h3>
-                            <h4>Captura esta etapa especial</h4>
-                            <p>Una etapa de la vida que se recuerda con mucho cariño. Permítenos ser parte de esos recuerdos inolvidables con precios especiales para 2025.</p>
-                            <ul class="service-features">
-                                <li>Sesión de fotos pre-evento</li>
-                                <li>Cobertura de la celebración</li>
-                                <li>Precios especiales 2025</li>
-                            </ul>
-                            <a href="#contact" class="service-cta">Solicitar información</a>
-                        </div>
-                    </article>
-                    
-                    <article class="service-card fade-in">
-                        <div class="service-image">
-                            <div class="service-icon">🎉</div>
-                        </div>
-                        <div class="service-content">
-                            <h3>Eventos Especiales</h3>
-                            <h4>Todo tipo de celebraciones</h4>
-                            <p>No solo bodas y quince años, estamos acostumbrados a capturar los mejores momentos en cada evento social. Pide informes para reservar tu fecha.</p>
-                            <ul class="service-features">
-                                <li>Eventos corporativos</li>
-                                <li>Celebraciones familiares</li>
-                                <li>Fotografía comercial</li>
-                            </ul>
-                            <a href="#contact" class="service-cta">Solicitar información</a>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- Testimonials Section -->
-        <section id="testimonials" class="testimonials section">
-            <div class="container">
-                <div class="section-header fade-in">
-                    <span class="section-badge">Testimonios</span>
-                    <h2>Lo Que Dicen Nuestros Clientes</h2>
-                    <p class="section-description">25 años creando recuerdos inolvidables para familias como la tuya</p>
-                </div>
-                <div class="testimonials-grid">
-                    <article class="testimonial-card fade-in">
-                        <div class="testimonial-rating">
-                            <span>⭐⭐⭐⭐⭐</span>
-                        </div>
-                        <blockquote class="testimonial-text">
-                            "Mejía Foto y Video hizo que nuestra boda fuera perfecta. La calidad de las fotos y videos es excepcional, y capturaron cada momento especial. ¡Los recomendamos al 100%!"
-                        </blockquote>
-                        <div class="testimonial-author">
-                            <div class="testimonial-avatar">
-                                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=80&h=80&fit=crop&crop=face" alt="María González" loading="lazy">
-                            </div>
-                            <div class="testimonial-info">
-                                <h4>María y Carlos González</h4>
-                                <p>Boda • Junio 2024</p>
-                            </div>
-                        </div>
-                    </article>
-                    
-                    <article class="testimonial-card fade-in">
-                        <div class="testimonial-rating">
-                            <span>⭐⭐⭐⭐⭐</span>
-                        </div>
-                        <blockquote class="testimonial-text">
-                            "Para los 15 años de mi hija, buscábamos algo especial. El profesionalismo y la dedicación del equipo fue increíble. Las fotos quedaron hermosas y el video nos emociona cada vez que lo vemos."
-                        </blockquote>
-                        <div class="testimonial-author">
-                            <div class="testimonial-avatar">
-                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face" alt="Ana Rodríguez" loading="lazy">
-                            </div>
-                            <div class="testimonial-info">
-                                <h4>Ana Rodríguez</h4>
-                                <p>Quinceañera • Marzo 2024</p>
-                            </div>
-                        </div>
-                    </article>
-                    
-                    <article class="testimonial-card fade-in">
-                        <div class="testimonial-rating">
-                            <span>⭐⭐⭐⭐⭐</span>
-                        </div>
-                        <blockquote class="testimonial-text">
-                            "Trabajamos con ellos en nuestro evento corporativo. Muy puntuales, profesionales y con una calidad de trabajo impresionante. Sin duda los volveremos a contratar."
-                        </blockquote>
-                        <div class="testimonial-author">
-                            <div class="testimonial-avatar">
-                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face" alt="Jorge Martínez" loading="lazy">
-                            </div>
-                            <div class="testimonial-info">
-                                <h4>Jorge Martínez</h4>
-                                <p>Evento Corporativo • Enero 2025</p>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- Packages Section -->
-        <section id="packages" class="packages section">
-            <div class="container">
-                <div class="section-header fade-in">
-                    <span class="section-badge">Nuestros Paquetes</span>
-                    <h2>Elige Tu Paquete Ideal</h2>
-                    <p class="section-description">Paquetes diseñados para cubrir todas tus necesidades y presupuesto</p>
-                </div>
-                <div class="packages-grid">
-                    <article class="package-card fade-in">
-                        <div class="package-header">
-                            <div class="package-badge">Recomendado</div>
-                            <h3>Paquete Gold</h3>
-                            <p class="package-subtitle">Perfecto para eventos pequeños</p>
-                        </div>
-                        <div class="package-content">
-                            <ul class="package-features">
-                                <li><span class="feature-icon">📸</span>100 fotos (4×6)</li>
-                                <li><span class="feature-icon">🖼️</span>1 Fotografía ampliación 16×20</li>
-                                <li><span class="feature-icon">🖼️</span>1 Fotografía ampliación 11×14</li>
-                                <li><span class="feature-icon">🖼️</span>2 Fotografías ampliación 8×10</li>
-                                <li><span class="feature-icon">💾</span>2 USB editados profesionalmente</li>
-                                <li><span class="feature-icon">📦</span>Caja personalizada de alta calidad</li>
-                                <li><span class="feature-icon">⏰</span>Cobertura hasta 8 horas</li>
-                                <li><span class="feature-icon">⛪</span>Iniciamos en la Iglesia</li>
-                            </ul>
-                            <div class="package-footer">
-                                <a href="#contact" class="cta-primary">Solicitar Precio</a>
-                            </div>
-                        </div>
-                    </article>
-                    
-                    <article class="package-card featured fade-in">
-                        <div class="package-header">
-                            <div class="package-badge popular">🔥 Más Popular</div>
-                            <h3>Paquete Diamante</h3>
-                            <p class="package-subtitle">La experiencia completa</p>
-                            <div class="offer-alert">
-                                🎉 ¡OFERTA JULIO! $250 de descuento
-                            </div>
-                        </div>
-                        <div class="package-content">
-                            <ul class="package-features">
-                                <li><span class="feature-icon">📸</span>200 fotos (4×6)</li>
-                                <li><span class="feature-icon">🖼️</span>1 Ampliación 20×30" montada</li>
-                                <li><span class="feature-icon">🖼️</span>1 Fotografía ampliación 16×20</li>
-                                <li><span class="feature-icon">🖼️</span>2 Fotografías ampliación 11×14</li>
-                                <li><span class="feature-icon">🖼️</span>4 Fotografías ampliación 8×10</li>
-                                <li><span class="feature-icon">💾</span>2 USB editados profesionalmente</li>
-                                <li><span class="feature-icon">🌐</span>Fotos en la web con app móvil</li>
-                                <li><span class="feature-icon">📍</span>Cobertura completa (casa, iglesia, parque, salón)</li>
-                                <li><span class="feature-icon">📦</span>Caja personalizada premium</li>
-                            </ul>
-                            <div class="package-footer">
-                                <a href="#contact" class="cta-primary">Solicitar Precio</a>
-                            </div>
-                        </div>
                     </article>
                 </div>
                 
@@ -2452,13 +1600,13 @@
 Hola, me gustaría solicitar una cotización para mi evento:
 
 INFORMACIÓN PERSONAL:
-• Nombre: ${data.name}
-• Email: ${data.email}
-• Teléfono: ${data.phone || 'No proporcionado'}
+- Nombre: ${data.name}
+- Email: ${data.email}
+- Teléfono: ${data.phone || 'No proporcionado'}
 
 DETALLES DEL EVENTO:
-• Fecha del evento: ${data['event-date']}
-• Tipo de evento: ${data['event-type'] || 'No especificado'}
+- Fecha del evento: ${data['event-date']}
+- Tipo de evento: ${data['event-type'] || 'No especificado'}
 
 MENSAJE ADICIONAL:
 ${data.message || 'Sin mensaje adicional'}
