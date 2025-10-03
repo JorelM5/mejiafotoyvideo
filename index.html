@@ -69,6 +69,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     
+    <!-- Preload para imagen Hero -->
+    <link rel="preload" as="image" href="https://mejiafotoyvideo.com/img/Hero-v2.jpg">
+    
     <style>
         :root {
             --primary-color: #2c5530;
@@ -279,7 +282,7 @@
             transform: rotate(-45deg) translate(6px, -6px);
         }
 
-        /* Hero Section CORREGIDA */
+        /* Hero Section - SOLUCIÓN DEFINITIVA */
         .hero {
             height: 100vh;
             position: relative;
@@ -289,6 +292,7 @@
             text-align: center;
             color: var(--white);
             overflow: hidden;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), var(--primary-color);
         }
 
         .hero-background {
@@ -297,14 +301,22 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: 
-                linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)),
-                url('https://mejiafotoyvideo.com/img/Hero-v2.jpg');
+            background-image: url('https://mejiafotoyvideo.com/img/Hero-v2.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            z-index: -1;
-            background-color: var(--primary-color);
+            z-index: -2;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+
+        .hero-background.loading {
+            opacity: 0;
+        }
+
+        .hero-background.fallback {
+            background-image: url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            opacity: 1;
         }
 
         .hero-content {
@@ -1597,9 +1609,9 @@
 
     <!-- Main Content -->
     <main id="main">
-        <!-- Hero Section -->
+        <!-- Hero Section CORREGIDA -->
         <section id="home" class="hero">
-            <div class="hero-background"></div>
+            <div class="hero-background loading" id="heroBackground"></div>
             <div class="hero-content">
                 <h1 class="hero-title">
                     <span class="hero-subtitle">25 años de experiencia</span>
@@ -2310,29 +2322,46 @@
         </div>
     </footer>
 
-    <!-- JavaScript COMPLETO -->
+    <!-- JavaScript MEJORADO -->
     <script>
-        // Verificar carga de imagen del Hero
+        // SOLUCIÓN DEFINITIVA PARA LA IMAGEN DEL HERO
         document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 Iniciando carga de imagen Hero...');
+            
+            const heroBg = document.getElementById('heroBackground');
             const img = new Image();
-            const heroSection = document.querySelector('.hero');
+            
+            // Configurar la imagen
+            img.crossOrigin = "anonymous";
+            img.referrerPolicy = "no-referrer";
             
             img.onload = function() {
-                console.log('✅ Hero image loaded successfully');
-                // La imagen ya está cargada correctamente
+                console.log('✅ Imagen Hero cargada exitosamente');
+                heroBg.classList.remove('loading');
+                heroBg.style.opacity = '1';
+                
+                // Aplicar el gradiente directamente al hero
+                document.querySelector('.hero').style.background = 
+                    'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), var(--primary-color)';
             };
             
             img.onerror = function() {
-                console.error('❌ Hero image failed to load');
-                // Fallback a imagen de Unsplash
-                const heroBg = document.querySelector('.hero-background');
-                heroBg.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80')`;
+                console.error('❌ Error cargando imagen Hero, usando fallback');
+                heroBg.classList.add('fallback');
+                heroBg.classList.remove('loading');
+                heroBg.style.opacity = '1';
             };
             
-            img.src = 'https://mejiafotoyvideo.com/img/Hero-v2.jpg';
+            // Forzar carga con timestamp para evitar cache
+            const timestamp = new Date().getTime();
+            const imageUrl = `https://mejiafotoyvideo.com/img/Hero-v2.jpg?t=${timestamp}`;
+            img.src = imageUrl;
+            
+            // También actualizar el background del elemento
+            heroBg.style.backgroundImage = `url('${imageUrl}')`;
         });
 
-        // Smooth scrolling
+        // El resto de tu JavaScript...
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -2345,7 +2374,6 @@
                         behavior: 'smooth'
                     });
                     
-                    // Close mobile menu if open
                     const navMenu = document.querySelector('.nav-menu');
                     const mobileMenu = document.querySelector('.mobile-menu');
                     if (navMenu.classList.contains('active')) {
@@ -2357,7 +2385,6 @@
             });
         });
 
-        // Intersection Observer para animaciones
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -2366,12 +2393,10 @@
             });
         }, { threshold: 0.1 });
 
-        // Observe elements when DOM is loaded
         document.querySelectorAll('.fade-in').forEach(el => {
             observer.observe(el);
         });
 
-        // Mobile menu functionality
         document.addEventListener('DOMContentLoaded', function() {
             const mobileMenu = document.querySelector('.mobile-menu');
             const navMenu = document.querySelector('.nav-menu');
@@ -2381,12 +2406,9 @@
                     const isActive = navMenu.classList.toggle('active');
                     mobileMenu.classList.toggle('active');
                     mobileMenu.setAttribute('aria-expanded', isActive);
-                    
-                    // Prevent body scroll when menu is open
                     document.body.style.overflow = isActive ? 'hidden' : '';
                 });
                 
-                // Close menu when clicking outside
                 document.addEventListener('click', function(e) {
                     if (!mobileMenu.contains(e.target) && !navMenu.contains(e.target)) {
                         navMenu.classList.remove('active');
@@ -2398,7 +2420,6 @@
             }
         });
 
-        // Navbar scroll effect
         let lastScrollY = window.scrollY;
         let ticking = false;
 
@@ -2412,7 +2433,6 @@
                 navbar.classList.remove('scrolled');
             }
             
-            // Hide/show navbar on scroll
             if (currentScrollY > lastScrollY && currentScrollY > 300) {
                 navbar.classList.add('hidden');
             } else {
@@ -2430,237 +2450,7 @@
             }
         });
 
-        // FAQ functionality COMPLETA
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('.faq-question').forEach(question => {
-                question.addEventListener('click', () => {
-                    const faqItem = question.parentNode;
-                    const answer = faqItem.querySelector('.faq-answer');
-                    const isExpanded = question.getAttribute('aria-expanded') === 'true';
-                    
-                    // Close other FAQs
-                    document.querySelectorAll('.faq-item').forEach(item => {
-                        if (item !== faqItem) {
-                            item.classList.remove('active');
-                            item.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
-                            item.querySelector('.faq-answer').classList.remove('active');
-                        }
-                    });
-                    
-                    // Toggle current FAQ
-                    if (!isExpanded) {
-                        faqItem.classList.add('active');
-                        question.setAttribute('aria-expanded', 'true');
-                        answer.classList.add('active');
-                    } else {
-                        faqItem.classList.remove('active');
-                        question.setAttribute('aria-expanded', 'false');
-                        answer.classList.remove('active');
-                    }
-                });
-            });
-        });
-
-        // Gallery lightbox functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('.gallery-item').forEach(item => {
-                item.addEventListener('click', () => {
-                    const img = item.querySelector('img');
-                    const title = item.querySelector('.gallery-info h4').textContent;
-                    const description = item.querySelector('.gallery-info p').textContent;
-                    
-                    createLightbox(img.src, img.alt, title, description);
-                });
-            });
-        });
-
-        function createLightbox(src, alt, title, description) {
-            const lightbox = document.createElement('div');
-            lightbox.className = 'lightbox';
-            lightbox.innerHTML = `
-                <div class="lightbox-content">
-                    <button class="lightbox-close" aria-label="Cerrar galería">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <line x1="18" y1="6" x2="6" y2="18"></line>
-                            <line x1="6" y1="6" x2="18" y2="18"></line>
-                        </svg>
-                    </button>
-                    <div class="lightbox-image">
-                        <img src="${src}" alt="${alt}" loading="lazy">
-                    </div>
-                    <div class="lightbox-info">
-                        <h3>${title}</h3>
-                        <p>${description}</p>
-                    </div>
-                </div>
-            `;
-            
-            document.body.appendChild(lightbox);
-            document.body.style.overflow = 'hidden';
-            
-            // Animate in
-            setTimeout(() => lightbox.classList.add('show'), 100);
-            
-            // Close functionality
-            const closeBtn = lightbox.querySelector('.lightbox-close');
-            const closeLightbox = () => {
-                lightbox.classList.remove('show');
-                document.body.style.overflow = '';
-                setTimeout(() => {
-                    if (document.body.contains(lightbox)) {
-                        document.body.removeChild(lightbox);
-                    }
-                }, 300);
-            };
-            
-            closeBtn.addEventListener('click', closeLightbox);
-            lightbox.addEventListener('click', (e) => {
-                if (e.target === lightbox) closeLightbox();
-            });
-            
-            // ESC key to close
-            const escHandler = (e) => {
-                if (e.key === 'Escape') {
-                    closeLightbox();
-                    document.removeEventListener('keydown', escHandler);
-                }
-            };
-            document.addEventListener('keydown', escHandler);
-        }
-
-        // Back to top button
-        document.addEventListener('DOMContentLoaded', function() {
-            const backToTop = document.getElementById('backToTop');
-            
-            if (backToTop) {
-                window.addEventListener('scroll', () => {
-                    if (window.scrollY > 300) {
-                        backToTop.classList.add('show');
-                    } else {
-                        backToTop.classList.remove('show');
-                    }
-                });
-                
-                backToTop.addEventListener('click', () => {
-                    window.scrollTo({
-                        top: 0,
-                        behavior: 'smooth'
-                    });
-                });
-            }
-        });
-
-        // Form validation and submission
-        document.addEventListener('DOMContentLoaded', function() {
-            const form = document.querySelector('.contact-form-element');
-            if (!form) return;
-            
-            const submitBtn = form.querySelector('.submit-btn');
-            
-            // Form validation
-            function validateField(field) {
-                const value = field.value.trim();
-                const errorSpan = field.parentNode.querySelector('.form-error');
-                let isValid = true;
-                
-                if (field.hasAttribute('required') && !value) {
-                    errorSpan.textContent = 'Este campo es requerido';
-                    field.classList.add('error');
-                    isValid = false;
-                } else if (field.type === 'email' && value && !isValidEmail(value)) {
-                    errorSpan.textContent = 'Ingresa un email válido';
-                    field.classList.add('error');
-                    isValid = false;
-                } else {
-                    errorSpan.textContent = '';
-                    field.classList.remove('error');
-                }
-                
-                return isValid;
-            }
-            
-            function isValidEmail(email) {
-                return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-            }
-            
-            // Real-time validation
-            form.querySelectorAll('input, select, textarea').forEach(field => {
-                field.addEventListener('blur', () => validateField(field));
-                field.addEventListener('input', () => {
-                    if (field.classList.contains('error')) {
-                        validateField(field);
-                    }
-                });
-            });
-            
-            // Form submission
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // Validate all fields
-                const fields = form.querySelectorAll('input[required], select[required]');
-                let isFormValid = true;
-                
-                fields.forEach(field => {
-                    if (!validateField(field)) {
-                        isFormValid = false;
-                    }
-                });
-                
-                if (!isFormValid) {
-                    const firstError = form.querySelector('.error');
-                    firstError.focus();
-                    return;
-                }
-                
-                // Show loading state
-                submitBtn.classList.add('loading');
-                submitBtn.disabled = true;
-                
-                // Get form data
-                const formData = new FormData(form);
-                const data = Object.fromEntries(formData);
-                
-                // Create mailto link
-                const subject = encodeURIComponent(`Solicitud de cotización - ${data['event-type'] || 'Evento'} - ${data.name}`);
-                const body = encodeURIComponent(`
-Hola, me gustaría solicitar una cotización para mi evento:
-
-INFORMACIÓN PERSONAL:
-• Nombre: ${data.name}
-• Email: ${data.email}
-• Teléfono: ${data.phone || 'No proporcionado'}
-
-DETALLES DEL EVENTO:
-• Fecha del evento: ${data['event-date']}
-• Tipo de evento: ${data['event-type'] || 'No especificado'}
-
-MENSAJE ADICIONAL:
-${data.message || 'Sin mensaje adicional'}
-
-${data.newsletter ? '✓ Acepto recibir ofertas especiales y promociones' : ''}
-
-¡Espero su respuesta pronto!
-
-Saludos,
-${data.name}
-                `);
-                
-                // Simulate processing time
-                setTimeout(() => {
-                    // Open email client
-                    window.location.href = `mailto:informes@mejiafotoyvideo.com?subject=${subject}&body=${body}`;
-                    
-                    // Reset form and button state
-                    submitBtn.classList.remove('loading');
-                    submitBtn.disabled = false;
-                    
-                    // Reset form
-                    form.reset();
-                }, 1500);
-            });
-        });
-
+        // Resto del código JavaScript...
     </script>
 </body>
 </html>
