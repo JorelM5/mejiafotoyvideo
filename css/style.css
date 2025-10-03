@@ -413,8 +413,10 @@ body.loaded {
   height: 100%;
   background: 
     var(--gradient-hero),
-    url('https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center/cover;
-  z-index: -1;
+    url('.hero-background {
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)),
+        url('https://mejiafotoyvideo.com/img/Hero-v2.jpg?force=true');
 }
 
 .hero-background::after {
