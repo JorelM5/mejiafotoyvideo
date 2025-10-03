@@ -1545,7 +1545,15 @@
                 background-color: var(--white) !important;
             }
         }
-
+/* Bloquear interferencias de extensiones */
+.give-freely-root, 
+[id*="freely"],
+[class*="freely"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
     </style>
 </head>
 <body>
