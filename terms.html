@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Términos de Servicio | Mejía Foto y Video Sacramento</title>
+    <meta name="description" content="Términos y condiciones de los servicios de fotografía y video de Mejía Foto y Video Sacramento.">
+    <meta name="robots" content="index, follow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --c-bg:       #f4f2ef;
+            --c-bg-warm:  #ede9e3;
+            --c-card:     #ffffff;
+            --c-mist:     #e8e4de;
+            --c-charcoal: #2a2826;
+            --c-mid:      #5a5652;
+            --c-soft:     #8e8a85;
+            --c-accent:   #9a8064;
+            --c-accent2:  #c4a882;
+            --gradient-warm: linear-gradient(135deg, #9a8064 0%, #c4a882 100%);
+            --font-display: 'Cormorant Garamond', Georgia, serif;
+            --font-body:    'DM Sans', system-ui, sans-serif;
+            --radius: 16px;
+            --shadow: 0 2px 20px rgba(0,0,0,.06);
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-body);
+            background: var(--c-bg);
+            color: var(--c-charcoal);
+            -webkit-font-smoothing: antialiased;
+        }
+        .topbar {
+            background: var(--c-card);
+            border-bottom: 1px solid var(--c-mist);
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky; top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+        }
+        .topbar-logo {
+            display: flex; align-items: center; gap: 10px;
+            text-decoration: none; color: var(--c-charcoal);
+        }
+        .topbar-logo img {
+            width: 38px; height: 38px;
+            border-radius: 8px; object-fit: cover;
+        }
+        .topbar-logo-text { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; }
+        .topbar-back {
+            display: inline-flex; align-items: center; gap: 6px;
+            text-decoration: none;
+            color: var(--c-accent);
+            font-size: .85rem;
+            font-weight: 500;
+            padding: 8px 16px;
+            border: 1.5px solid var(--c-accent);
+            border-radius: 40px;
+            transition: all .25s;
+        }
+        .topbar-back:hover { background: var(--c-accent); color: #fff; }
+        .page-hero {
+            background: linear-gradient(135deg, #2a2826 0%, #3d3830 100%);
+            color: #fff;
+            text-align: center;
+            padding: 60px 24px;
+        }
+        .page-hero-label {
+            font-size: .72rem;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--c-accent2);
+            margin-bottom: 12px;
+        }
+        .page-hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 300;
+            margin-bottom: 10px;
+        }
+        .page-hero p { font-size: .9rem; opacity: .75; }
+        .page-wrap {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: clamp(32px, 6vw, 64px) clamp(16px, 4vw, 32px);
+        }
+        .last-updated {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--c-card);
+            border: 1px solid var(--c-mist);
+            border-radius: 40px;
+            padding: 6px 16px;
+            font-size: .78rem;
+            color: var(--c-soft);
+            margin-bottom: 36px;
+        }
+        .policy-section {
+            background: var(--c-card);
+            border-radius: var(--radius);
+            border: 1px solid var(--c-mist);
+            box-shadow: var(--shadow);
+            padding: clamp(24px, 4vw, 40px);
+            margin-bottom: 20px;
+        }
+        .policy-section h2 {
+            font-family: var(--font-display);
+            font-size: 1.45rem;
+            font-weight: 600;
+            color: var(--c-charcoal);
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px; height: 28px;
+            background: var(--gradient-warm);
+            color: #fff;
+            border-radius: 50%;
+            font-size: .78rem;
+            font-weight: 700;
+            flex-shrink: 0;
+            font-family: var(--font-body);
+        }
+        .policy-section p {
+            font-size: .93rem;
+            color: var(--c-mid);
+            line-height: 1.75;
+            margin-bottom: 12px;
+        }
+        .policy-section p:last-child { margin-bottom: 0; }
+        .policy-section ul {
+            margin: 12px 0 12px 4px;
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .policy-section ul li {
+            font-size: .92rem;
+            color: var(--c-mid);
+            line-height: 1.6;
+            padding-left: 20px;
+            position: relative;
+        }
+        .policy-section ul li::before {
+            content: '→';
+            position: absolute; left: 0;
+            color: var(--c-accent);
+            font-size: .82rem;
+        }
+        .highlight-box {
+            background: var(--c-bg-warm);
+            border-left: 3px solid var(--c-accent);
+            border-radius: 0 8px 8px 0;
+            padding: 14px 18px;
+            margin: 16px 0;
+            font-size: .9rem;
+            color: var(--c-mid);
+            line-height: 1.65;
+        }
+        .warning-box {
+            background: #fff8f0;
+            border-left: 3px solid #c05c2a;
+            border-radius: 0 8px 8px 0;
+            padding: 14px 18px;
+            margin: 16px 0;
+            font-size: .9rem;
+            color: var(--c-mid);
+            line-height: 1.65;
+        }
+        .contact-cta {
+            background: var(--gradient-warm);
+            border-radius: var(--radius);
+            padding: 32px;
+            text-align: center;
+            color: #fff;
+            margin-top: 32px;
+        }
+        .contact-cta h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 8px;
+        }
+        .contact-cta p { font-size: .9rem; opacity: .9; margin-bottom: 20px; }
+        .cta-btn {
+            display: inline-block;
+            background: #fff;
+            color: var(--c-accent);
+            padding: 12px 28px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: .9rem;
+            transition: all .25s;
+        }
+        .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.15); }
+        .page-footer {
+            background: #2a2826;
+            color: rgba(255,255,255,.55);
+            text-align: center;
+            padding: 24px;
+            font-size: .82rem;
+        }
+        .page-footer a { color: var(--c-accent2); text-decoration: none; }
+        .page-footer a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+<nav class="topbar">
+    <a href="index.html" class="topbar-logo">
+        <img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=76&h=76&fit=crop&crop=center" alt="Mejía Foto y Video">
+        <span class="topbar-logo-text">Mejía Foto y Video</span>
+    </a>
+    <a href="index.html" class="topbar-back">← Volver al inicio</a>
+</nav>
+
+<div class="page-hero">
+    <div class="page-hero-label">Legal</div>
+    <h1>Términos de Servicio</h1>
+    <p>Condiciones que rigen la contratación de nuestros servicios</p>
+</div>
+
+<div class="page-wrap">
+
+    <div class="last-updated">🗓️ Última actualización: Marzo 2026</div>
+
+    <div class="policy-section">
+        <h2><span class="section-num">1</span> Aceptación de los términos</h2>
+        <p>Al contratar los servicios de <strong>Mejía Foto y Video</strong> o utilizar nuestro sitio web <strong>mejiafotoyvideo.com</strong>, aceptas cumplir estos Términos de Servicio. Si no estás de acuerdo con alguna de las condiciones, te pedimos que no utilices nuestros servicios.</p>
+        <p>Estos términos constituyen el acuerdo completo entre el cliente y Mejía Foto y Video con respecto a los servicios contratados, y prevalecen sobre cualquier comunicación verbal previa.</p>
+    </div>
+
+    <div class="policy-section">
+        <h2><span class="section-num">2</span> Descripción de los servicios</h2>
+        <p>Mejía Foto y Video ofrece servicios profesionales de fotografía y video para:</p>
+        <ul>
+            <li>Bodas y ceremonias religiosas</li>
+            <li>Quinceañeras y celebraciones de 15 años</li>
+            <li>Eventos corporativos y empresariales</li>
+            <li>Celebraciones familiares y sociales</li>
+            <li>Sesiones fotográficas especiales</li>
+            <li>Videos promocionales y comerciales</li>
+        </ul>
+        <p>Los detalles específicos de cada servicio, incluyendo duración, entregables y cobertura, se establecen en el contrato individual firmado por ambas partes.</p>
+    </div>
+
+    <div class="policy-section">
+        <h2><span class="section-num">3</span> Reservación y contrato</h2>
+        <p>Para confirmar la reservación de una fecha, es necesario:</p>
+        <ul>
+            <li>Firmar el contrato de servicios correspondiente.</li>
+            <li>Realizar el pago del depósito acordado (generalmente el 50% del total).</li>
+        </ul>
+        <div class="highlight-box">
+            <strong>Importante:</strong> La fecha del evento queda reservada únicamente al recibir el contrato firmado y el depósito. No se garantiza disponibilidad con solo una solicitud de información.
+        </div>
+        <p>El saldo restante deberá liquidarse en la fecha acordada en el contrato, generalmente antes o en el día del evento.</p>
+    </div>
+
+    <div class="policy-section">
+        <h2><span class="section-num">4</span> Política de cancelación y reembolsos</h2>
+        <p>Entendemos que pueden surgir imprevistos. Nuestra política de cancelación es la siguiente:</p>
+        <ul>
+            <li><strong>Cancelación con más de 90 días de anticipación:</strong> reembolso del 50% del depósito.</li>
+            <li><strong>Cancelación entre 30 y 90 días:</strong> el depósito no es reembolsable, pero puede aplicarse como crédito para una nueva fecha.</li>
+            <li><strong>Cancelación con menos de 30 días:</strong> el depósito no es reembolsable y se cobrará el 50% del saldo pendiente.</li>
+            <li><strong>No presentación sin aviso previo:</strong> se cobrará el monto total del paquete contratado.</li>
+        </ul>
+        <div class="warning-box">
+            En caso de emergencia médica o fuerza mayor debidamente documentada, evaluaremos cada caso individualmente para encontrar la mejor solución para ambas partes.
+        </div>
+    </div>
+
+    <div class="policy-section">
+        <h2><span class="section-num">5</span> Cambios de fecha</h2>
+        <p>Si necesitas cambiar la fecha de tu evento:</p>
+        <ul>
+            <li>Notifícanos con el mayor tiempo de anticipación posible.</li>
+            <li>El cambio está sujeto a disponibilidad en la nueva fecha solicitada.</li>
+            <li>Se permite un cambio de fecha sin cargo adicional si se notifica con más de 60 días de anticipación.</li>
+            <li>Cambios con menos de 60 días pueden incurrir en un cargo administrativo.</li>
+        </ul>
+    </div>
+
+    <div class="policy-section">
+        <h2><span class="section-num">6</span> Entrega del material</h2>
+        <p>Los tiempos de entrega del material editado son los siguientes:</p>
+        <ul>
+            <li><strong>Fotografías editadas:</strong> entre 2 y 4 semanas después del evento.</li>
+            <li><strong>Video editado:</strong> entre 3 y 6 semanas después del evento, dependiendo del paquete.</li>
+            <li><strong>Entrega exprés:</strong> disponible con cargo adicional, tiempo a acordar según disponibilidad.</li>
+        </ul>
+        <p>El material se entregará en los formatos y medios especificados en el contrato (USB, descarga digital, impresiones, etc.).</p>
+        <div class="highlight-box">
+            El cliente tiene 30 días después de la entrega para solicitar correcciones menores incluidas en el paquete. Cambios mayores fuera del alcance original pueden tener costo adicional.
+        </div>
+    </div>
+
+    <div class="policy-section">
+        <h2><span class="section-num">7</span> Derechos de autor y uso del material</h2>
+        <p>Mejía Foto y Video retiene los derechos de autor sobre todo el material fotográfico y audiovisual producido. Al contratar nuestros servicios:</p>
+        <ul>
+            <li>El cliente recibe una <strong>licencia de uso personal</strong> ilimitada para el material entregado.</li>
+            <li>El cliente puede compartir el material en redes sociales con crédito a Mejía Foto y Video.</li>
+            <li>No está permitida la reventa o uso comercial del material sin autorización escrita.</li>
+            <li>Mejía Foto y Video puede usar el material con fines promocionales, salvo indicación contraria por escrito del cliente al momento de firmar el contrato.</li>
+        </ul>
+    </div>
+
+    <div class="policy-section">
+        <h2><span class="section-num">8</span> Responsabilidades del cliente</h2>
+        <p>Para garantizar los mejores resultados, el cliente se compromete a:</p>
+        <ul>
+            <li>Proporcionar información precisa y completa sobre el evento (horario, lugar, número de personas, momentos clave).</li>
+            <li>Asignar a una persona de contacto el día del evento para coordinar con el equipo fotográfico.</li>
+            <li>Informar sobre restricciones del lugar o situaciones que puedan afectar la cobertura.</li>
+            <li>Asegurarse de que los invitados estén disponibles para las fotos grupales solicitadas.</li>
+        </ul>
+        <p>Mejía Foto y Video no se hace responsable por retrasos o situaciones fuera de nuestro control ocasionadas por terceros (retrasos del evento, restricciones del lugar, condiciones climáticas extremas, etc.).</p>
+    </div>
+
+    <div class="policy-section">
+        <h2><span class="section-num">9</span> Limitación de responsabilidad</h2>
+        <p>En el improbable caso de fallo de equipo, accidente u otras circunstancias de fuerza mayor que impidan la cobertura completa del evento, la responsabilidad de Mejía Foto y Video se limita al reembolso total de los montos pagados por el cliente.</p>
+        <p>No seremos responsables por daños indirectos, pérdida de oportunidades o perjuicios que excedan el monto del contrato.</p>
+        <div class="warning-box">
+            Siempre trabajamos con equipo de respaldo para minimizar cualquier riesgo técnico durante tu evento.
+        </div>
+    </div>
+
+    <div class="policy-section">
+        <h2><span class="section-num">10</span> Planes de pago</h2>
+        <p>Ofrecemos planes de pago flexibles adaptados a las necesidades de cada cliente. Los términos específicos (número de cuotas, fechas límite y montos) se establecen en el contrato individual.</p>
+        <ul>
+            <li>El incumplimiento en los pagos acordados puede resultar en la cancelación del contrato.</li>
+            <li>En caso de cancelación por falta de pago, se aplican las políticas de cancelación descritas en el artículo 4.</li>
+        </ul>
+    </div>
+
+    <div class="policy-section">
+        <h2><span class="section-num">11</span> Ley aplicable y jurisdicción</h2>
+        <p>Estos Términos de Servicio se rigen por las leyes del estado de <strong>California, Estados Unidos</strong>. Cualquier disputa que no pueda resolverse amigablemente será sometida a la jurisdicción de los tribunales competentes del Condado de Sacramento, California.</p>
+        <p>Ambas partes se comprometen a intentar resolver cualquier desacuerdo mediante diálogo directo antes de recurrir a instancias legales.</p>
+    </div>
+
+    <div class="policy-section">
+        <h2><span class="section-num">12</span> Modificaciones a los términos</h2>
+        <p>Mejía Foto y Video se reserva el derecho de actualizar estos Términos de Servicio en cualquier momento. Los cambios entrarán en vigor al publicarse en este sitio web. Los contratos firmados antes de cualquier modificación se regirán por los términos vigentes al momento de su firma.</p>
+    </div>
+
+    <div class="policy-section">
+        <h2><span class="section-num">13</span> Contacto</h2>
+        <p>Para cualquier pregunta sobre estos términos o para iniciar el proceso de contratación:</p>
+        <ul>
+            <li><strong>Correo electrónico:</strong> <a href="mailto:informes@mejiafotoyvideo.com" style="color:var(--c-accent)">informes@mejiafotoyvideo.com</a></li>
+            <li><strong>Teléfono / WhatsApp:</strong> <a href="tel:+19165413044" style="color:var(--c-accent)">(916) 541-3044</a></li>
+            <li><strong>Redes sociales:</strong> <a href="https://www.facebook.com/mejiafotoyvideo" target="_blank" rel="noopener" style="color:var(--c-accent)">Facebook</a> · <a href="https://www.instagram.com/mejiafotoyvideo7" target="_blank" rel="noopener" style="color:var(--c-accent)">Instagram</a></li>
+            <li><strong>Área de servicio:</strong> Sacramento, CA y ciudades cercanas</li>
+        </ul>
+    </div>
+
+    <div class="contact-cta">
+        <h3>¿Listo para reservar tu fecha?</h3>
+        <p>Contáctanos hoy mismo y te enviamos todos los detalles y paquetes disponibles.</p>
+        <a href="index.html#contact" class="cta-btn">Solicitar cotización →</a>
+    </div>
+
+</div>
+
+<footer class="page-footer">
+    <p>&copy; 2026 Mejía Foto y Video — Sacramento, CA &nbsp;|&nbsp;
+       <a href="privacy.html">Privacidad</a> &nbsp;·&nbsp;
+       <a href="terms.html">Términos</a> &nbsp;·&nbsp;
+       <a href="index.html">Inicio</a>
+    </p>
+</footer>
+
+</body>
+</html>
